@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSK PACK | Pack Builder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ── Variables ── */
+    :root {
+      --accent-red: #ff2a4b;
+      --accent-red-glow: rgba(255,42,75,0.45);
+      --accent-red-hover: #ff4763;
+      --bg-primary: #050508;
+      --bg-secondary: #0d0d12;
+      --bg-card: #10101a;
+      --border-color: rgba(255,255,255,0.05);
+      --border-glow: rgba(255,42,75,0.15);
+      --text-primary: #ffffff;
+      --text-secondary: #9090a2;
+      --text-muted: #575768;
+      --font-title: 'Outfit', sans-serif;
+      --font-body: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      background-image: radial-gradient(circle at 20% 20%, rgba(255,42,75,0.04) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255,42,75,0.03) 0%, transparent 50%);
+    }
+
+    /* ── Header ── */
+    .header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      border-bottom: 1px solid var(--border-color);
+      backdrop-filter: blur(20px);
+      background: rgba(5,5,8,0.6);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--accent-red);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-title);
+      font-weight: 800; font-size: 1.2rem; color: #fff;
+    }
+    .logo-text { font-family: var(--font-title); font-size: 1.35rem; font-weight: 800; color: var(--text-primary); }
+    .logo-text span { color: var(--accent-red); }
+    .nav-links { display: flex; align-items: center; gap: 16px; }
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .nav-link:hover { color: var(--text-primary); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600; font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.09); color: var(--text-primary); }
+    .btn-primary {
+      background: var(--accent-red);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255,42,75,0.35);
+    }
+    .btn-primary:hover { background: var(--accent-red-hover); box-shadow: 0 4px 28px rgba(255,42,75,0.5); transform: translateY(-1px); }
+
+    /* Bouton Pack Builder actif */
+    .btn-builder {
+      background: linear-gradient(135deg, rgba(255,42,75,0.15), rgba(255,42,75,0.08));
+      border: 1px solid rgba(255,42,75,0.35);
+      color: var(--accent-red);
+    }
+    .btn-builder:hover { background: rgba(255,42,75,0.2); border-color: rgba(255,42,75,0.6); color: #ff6b82; transform: translateY(-1px); }
+
+    /* ── Hero Builder ── */
+    .builder-hero {
+      text-align: center;
+      padding: 60px 5% 40px;
+    }
+    .builder-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,42,75,0.08);
+      border: 1px solid rgba(255,42,75,0.2);
+      padding: 6px 16px; border-radius: 20px;
+      font-size: 0.75rem; font-family: var(--font-mono);
+      color: var(--accent-red); letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .builder-title {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      line-height: 1.1;
+    }
+    .builder-title span { color: var(--accent-red); }
+    .builder-subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ── Steps ── */
+    .steps-bar {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; margin-bottom: 48px;
+      padding: 0 5%;
+    }
+    .step-item { display: flex; align-items: center; gap: 10px; }
+    .step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; color: var(--text-muted);
+      font-family: var(--font-mono);
+      transition: all 0.3s;
+    }
+    .step-dot.active { background: var(--accent-red); border-color: var(--accent-red); color: #fff; box-shadow: 0 0 16px rgba(255,42,75,0.5); }
+    .step-dot.done { background: rgba(0,255,102,0.1); border-color: rgba(0,255,102,0.3); color: #00ff66; }
+    .step-label { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    .step-label.active { color: var(--text-primary); }
+    .step-line { width: 60px; height: 1px; background: var(--border-color); margin: 0 6px; }
+
+    /* ── Builder Layout ── */
+    .builder-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+      padding: 0 5% 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── Panels ── */
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .panel-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .panel-icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,42,75,0.1);
+      border: 1px solid rgba(255,42,75,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent-red); font-size: 0.9rem;
+    }
+    .panel-title { font-family: var(--font-title); font-weight: 700; font-size: 1rem; }
+    .panel-subtitle { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+    .panel-body { padding: 24px; }
+
+    /* ── Sections du builder ── */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* Section 1 : Infos */
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block; margin-bottom: 8px;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .form-label span { color: var(--accent-red); }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: rgba(255,42,75,0.4);
+      background: rgba(255,42,75,0.04);
+    }
+    .form-textarea { resize: vertical; min-height: 90px; }
+    .form-select option { background: #0d0d12; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .tags-hint { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
+
+    /* Section 2 : Visuels */
+    .upload-zone {
+      border: 2px dashed var(--border-color);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .upload-zone:hover { border-color: rgba(255,42,75,0.4); background: rgba(255,42,75,0.03); }
+    .upload-zone.has-file { border-color: rgba(0,255,102,0.3); background: rgba(0,255,102,0.03); }
+    .upload-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .upload-icon { font-size: 2rem; color: var(--text-muted); margin-bottom: 12px; }
+    .upload-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+    .upload-hint { font-size: 0.78rem; color: var(--text-muted); }
+    .upload-preview { width: 100%; max-height: 180px; object-fit: cover; border-radius: 8px; margin-top: 12px; display: none; }
+    .upload-filename { font-size: 0.8rem; color: #00ff66; margin-top: 8px; display: none; }
+
+    /* Section 3 : Fichier */
+    .version-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+    .version-chip {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      background: rgba(255,255,255,0.03);
+      text-align: center;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .version-chip:hover { border-color: rgba(255,42,75,0.3); color: var(--text-secondary); }
+    .version-chip.selected { border-color: var(--accent-red); background: rgba(255,42,75,0.1); color: var(--accent-red); }
+
+    /* ── Prévisualisation ── */
+    .preview-panel { position: sticky; top: 90px; }
+    .preview-card {
+      background: linear-gradient(135deg, rgba(255,42,75,0.05), rgba(255,42,75,0.02));
+      border: 1px solid rgba(255,42,75,0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .preview-thumb {
+      width: 100%; height: 180px;
+      background: linear-gradient(135deg, #1a0a10, #0d0d12);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .preview-thumb img { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .preview-thumb-placeholder { text-align: center; color: var(--text-muted); }
+    .preview-thumb-placeholder i { font-size: 2.5rem; margin-bottom: 8px; color: rgba(255,42,75,0.3); }
+    .preview-category-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(255,42,75,0.85);
+      color: #fff; font-size: 0.7rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .preview-body { padding: 16px; }
+    .preview-name { font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; min-height: 26px; }
+    .preview-creator { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; min-height: 18px; }
+    .preview-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; min-height: 40px; margin-bottom: 12px; }
+    .preview-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .preview-badge {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 0.72rem; font-family: var(--font-mono); color: var(--text-muted);
+    }
+    .preview-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .preview-tag {
+      background: rgba(255,42,75,0.08);
+      border: 1px solid rgba(255,42,75,0.15);
+      color: var(--accent-red);
+      padding: 3px 10px; border-radius: 20px;
+      font-size: 0.72rem;
+    }
+    .preview-btn {
+      width: 100%;
+      background: var(--accent-red);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 700; font-size: 0.85rem;
+      cursor: default;
+      opacity: 0.6;
+    }
+
+    .preview-label {
+      text-align: center; font-size: 0.72rem;
+      color: var(--text-muted); margin-bottom: 12px;
+      font-family: var(--font-mono); letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── Navigation steps ── */
+    .steps-nav {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-top: 28px;
+      padding-top: 20px; border-top: 1px solid var(--border-color);
+    }
+    .btn-ghost {
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-secondary); padding: 10px 20px; border-radius: 8px;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.15); color: var(--text-primary); }
+    .btn-ghost:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    /* ── Success ── */
+    .success-section {
+      text-align: center; padding: 40px 20px; display: none;
+    }
+    .success-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(0,255,102,0.1);
+      border: 2px solid rgba(0,255,102,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: #00ff66; margin: 0 auto 20px;
+    }
+    .success-title { font-family: var(--font-title); font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
+    .success-subtitle { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 28px; line-height: 1.6; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .builder-layout { grid-template-columns: 1fr; }
+      .preview-panel { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .version-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="/" class="logo-container">
+      <div class="logo-icon">S</div>
+      <div class="logo-text">SSK <span>PACK</span></div>
+    </a>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Accueil</a>
+      <a href="/pack-builder.html" class="btn btn-builder">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Pack Builder
+      </a>
+      <a href="/admin.html" class="btn btn-secondary" style="font-size:0.8rem; height:38px;">
+        <i class="fa-solid fa-lock"></i> Connexion Admin
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="builder-hero">
+    <div class="builder-tag">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      PACK BUILDER — SSK PACK
+    </div>
+    <h1 class="builder-title">Crée ton <span>Pack</span> PvP</h1>
+    <p class="builder-subtitle">
+      Assemble les infos de ton pack en quelques étapes et soumets-le directement à la librairie SSK.
+    </p>
+  </div>
+
+  <!-- Steps bar -->
+  <div class="steps-bar">
+    <div class="step-item">
+      <div class="step-dot active" id="dot1">1</div>
+      <div class="step-label active" id="lbl1">Informations</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-dot" id="dot2">2</div>
+      <div class="step-label" id="lbl2">Visuels</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-dot" id="dot3">3</div>
+      <div class="step-label" id="lbl3">Fichier & Versions</div>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-dot" id="dot4">4</div>
+      <div class="step-label" id="lbl4">Soumettre</div>
+    </div>
+  </div>
+
+  <!-- Builder Layout -->
+  <div class="builder-layout">
+
+    <!-- Panneau principal -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-icon"><i class="fa-solid fa-cube"></i></div>
+        <div>
+          <div class="panel-title" id="panelTitle">Informations du pack</div>
+          <div class="panel-subtitle" id="panelSub">Étape 1 sur 4 — Renseigne les détails de base</div>
+        </div>
+      </div>
+      <div class="panel-body">
+
+        <!-- ÉTAPE 1 : Infos -->
+        <div class="section active" id="step1">
+          <div class="form-group">
+            <label class="form-label">Nom du pack <span>*</span></label>
+            <input class="form-input" id="packName" type="text" placeholder="Ex: Dragon PvP 16x NoDebuff" oninput="updatePreview()">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Créateur <span>*</span></label>
+              <input class="form-input" id="packCreator" type="text" placeholder="Ton pseudo" oninput="updatePreview()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Catégorie <span>*</span></label>
+              <select class="form-select" id="packCategory" onchange="updatePreview()">
+                <option value="">— Choisir —</option>
+                <option value="NoDebuff">NoDebuff</option>
+                <option value="Boxing">Boxing</option>
+                <option value="UHC">UHC</option>
+                <option value="Rush">Rush</option>
+                <option value="Sky">Skywars</option>
+                <option value="Overlay">Overlay</option>
+                <option value="Vanilla+">Vanilla+</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Résolution <span>*</span></label>
+              <select class="form-select" id="packResolution" onchange="updatePreview()">
+                <option value="">— Choisir —</option>
+                <option value="8x">8x (Max FPS)</option>
+                <option value="16x">16x (Standard)</option>
+                <option value="32x">32x (Détaillé)</option>
+                <option value="64x">64x (HQ)</option>
+                <option value="128x">128x (Ultra)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tags</label>
+              <input class="form-input" id="packTags" type="text" placeholder="pvp, fps, orange, clean..." oninput="updatePreview()">
+              <div class="tags-hint">Sépare avec des virgules</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description <span>*</span></label>
+            <textarea class="form-textarea" id="packDesc" placeholder="Décris ton pack : style, optimisations, particularités..." oninput="updatePreview()"></textarea>
+          </div>
+          <div class="steps-nav">
+            <button class="btn-ghost" disabled><i class="fa-solid fa-arrow-left"></i> Précédent</button>
+            <button class="btn btn-primary" onclick="goStep(2)">Suivant <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 2 : Visuels -->
+        <div class="section" id="step2">
+          <div class="form-group">
+            <label class="form-label">Miniature / Screenshot <span>*</span></label>
+            <div class="upload-zone" id="thumbZone">
+              <input type="file" accept="image/*" id="thumbInput" onchange="handleThumb(this)">
+              <div class="upload-icon"><i class="fa-solid fa-image"></i></div>
+              <div class="upload-title">Dépose ton image ici</div>
+              <div class="upload-hint">PNG, JPG, WEBP — max 5 Mo</div>
+              <img id="thumbPreview" class="upload-preview">
+              <div id="thumbFilename" class="upload-filename"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Vidéo de prévisualisation <span style="color:var(--text-muted);">(optionnel)</span></label>
+            <div class="upload-zone" id="videoZone">
+              <input type="file" accept="video/mp4,video/webm" id="videoInput" onchange="handleVideo(this)">
+              <div class="upload-icon"><i class="fa-solid fa-video"></i></div>
+              <div class="upload-title">Vidéo MP4 ou WebM</div>
+              <div class="upload-hint">Pour les catégories Sky et Overlay — max 50 Mo</div>
+              <div id="videoFilename" class="upload-filename"></div>
+            </div>
+          </div>
+          <div class="steps-nav">
+            <button class="btn-ghost" onclick="goStep(1)"><i class="fa-solid fa-arrow-left"></i> Précédent</button>
+            <button class="btn btn-primary" onclick="goStep(3)">Suivant <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 : Fichier & Versions -->
+        <div class="section" id="step3">
+          <div class="form-group">
+            <label class="form-label">Versions compatibles <span>*</span></label>
+            <div class="version-grid" id="versionGrid">
+              <div class="version-chip" onclick="toggleVersion(this, '1.8.9')">1.8.9</div>
+              <div class="version-chip" onclick="toggleVersion(this, '1.12.2')">1.12.2</div>
+              <div class="version-chip" onclick="toggleVersion(this, '1.16.5')">1.16.5</div>
+              <div class="version-chip" onclick="toggleVersion(this, '1.18.2')">1.18.2</div>
+              <div class="version-chip" onclick="toggleVersion(this, '1.20.x')">1.20.x</div>
+              <div class="version-chip" onclick="toggleVersion(this, '1.21.4')">1.21.4</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Fichier .zip du pack <span>*</span></label>
+            <div class="upload-zone" id="zipZone">
+              <input type="file" accept=".zip,application/zip" id="zipInput" onchange="handleZip(this)">
+              <div class="upload-icon"><i class="fa-solid fa-file-zipper"></i></div>
+              <div class="upload-title">Dépose ton .zip ici</div>
+              <div class="upload-hint">Fichier ZIP uniquement</div>
+              <div id="zipFilename" class="upload-filename"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ou utiliser un lien externe</label>
+            <input class="form-input" id="externalUrl" type="url" placeholder="https://mediafire.com/ton-pack.zip">
+            <div class="tags-hint">Si ton pack est hébergé sur MediaFire, Drive, etc.</div>
+          </div>
+          <div class="steps-nav">
+            <button class="btn-ghost" onclick="goStep(2)"><i class="fa-solid fa-arrow-left"></i> Précédent</button>
+            <button class="btn btn-primary" onclick="goStep(4)">Suivant <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 4 : Soumettre -->
+        <div class="section" id="step4">
+          <div id="summaryBox" style="background:rgba(255,255,255,0.03);border:1px solid var(--border-color);border-radius:12px;padding:20px;margin-bottom:24px;">
+            <div style="font-weight:700;margin-bottom:14px;font-family:var(--font-title);">Récapitulatif</div>
+            <div id="summaryContent" style="font-size:0.85rem;color:var(--text-secondary);line-height:2;"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mot de passe Admin <span>*</span></label>
+            <input class="form-input" id="adminPassword" type="password" placeholder="Mot de passe pour publier">
+          </div>
+          <div id="submitError" style="display:none;background:rgba(255,42,75,0.08);border:1px solid rgba(255,42,75,0.2);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem;color:#ff6b82;"></div>
+          <div class="steps-nav">
+            <button class="btn-ghost" onclick="goStep(3)"><i class="fa-solid fa-arrow-left"></i> Précédent</button>
+            <button class="btn btn-primary" id="submitBtn" onclick="submitPack()">
+              <i class="fa-solid fa-rocket"></i> Publier le pack
+            </button>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="success-section" id="successSection">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <div class="success-title">Pack publié !</div>
+          <div class="success-subtitle">Ton pack a été ajouté à la librairie SSK.<br>Il est maintenant visible par tous les joueurs.</div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="/" class="btn btn-primary"><i class="fa-solid fa-house"></i> Voir la librairie</a>
+            <button class="btn btn-secondary" onclick="resetBuilder()"><i class="fa-solid fa-plus"></i> Ajouter un autre pack</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Panneau prévisualisation -->
+    <div class="preview-panel">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-icon"><i class="fa-solid fa-eye"></i></div>
+          <div>
+            <div class="panel-title">Aperçu en direct</div>
+            <div class="panel-subtitle">Comme il apparaîtra sur le site</div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="preview-label">APERÇU CARTE PACK</div>
+          <div class="preview-card">
+            <div class="preview-thumb">
+              <img id="previewImg">
+              <div class="preview-thumb-placeholder" id="previewPlaceholder">
+                <i class="fa-solid fa-image"></i>
+                <div style="font-size:0.75rem;margin-top:4px;">Miniature</div>
+              </div>
+              <div class="preview-category-badge" id="previewCat">Catégorie</div>
+            </div>
+            <div class="preview-body">
+              <div class="preview-name" id="previewName">Nom du pack</div>
+              <div class="preview-creator" id="previewCreator">par Créateur</div>
+              <div class="preview-desc" id="previewDesc">Description du pack...</div>
+              <div class="preview-meta">
+                <span class="preview-badge" id="previewRes">Résolution</span>
+                <span class="preview-badge" id="previewVersions">Versions</span>
+              </div>
+              <div class="preview-tags" id="previewTags"></div>
+              <button class="preview-btn"><i class="fa-solid fa-download"></i> Télécharger</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    let selectedVersions = [];
+    let thumbFile = null, zipFile = null, videoFile = null;
+
+    const stepTitles = [
+      '', 'Informations du pack', 'Visuels', 'Fichier & Versions', 'Soumettre'
+    ];
+    const stepSubs = [
+      '', 'Étape 1 sur 4 — Renseigne les détails de base',
+      'Étape 2 sur 4 — Ajoute les visuels de ton pack',
+      'Étape 3 sur 4 — Fichier et compatibilité',
+      'Étape 4 sur 4 — Vérifie et publie'
+    ];
+
+    function goStep(n) {
+      document.getElementById('step' + currentStep).classList.remove('active');
+      document.getElementById('dot' + currentStep).classList.remove('active');
+      document.getElementById('dot' + currentStep).classList.add('done');
+      document.getElementById('lbl' + currentStep).classList.remove('active');
+
+      if (n < currentStep) {
+        for (let i = n; i <= 4; i++) {
+          document.getElementById('dot' + i).classList.remove('done');
+        }
+      }
+
+      currentStep = n;
+      document.getElementById('step' + n).classList.add('active');
+      document.getElementById('dot' + n).classList.remove('done');
+      document.getElementById('dot' + n).classList.add('active');
+      document.getElementById('lbl' + n).classList.add('active');
+      document.getElementById('panelTitle').textContent = stepTitles[n];
+      document.getElementById('panelSub').textContent = stepSubs[n];
+
+      if (n === 4) buildSummary();
+    }
+
+    function updatePreview() {
+      const name = document.getElementById('packName').value || 'Nom du pack';
+      const creator = document.getElementById('packCreator').value || 'Créateur';
+      const desc = document.getElementById('packDesc').value || 'Description du pack...';
+      const cat = document.getElementById('packCategory').value || 'Catégorie';
+      const res = document.getElementById('packResolution').value || 'Résolution';
+      const tags = document.getElementById('packTags').value;
+
+      document.getElementById('previewName').textContent = name;
+      document.getElementById('previewCreator').textContent = 'par ' + creator;
+      document.getElementById('previewDesc').textContent = desc;
+      document.getElementById('previewCat').textContent = cat;
+      document.getElementById('previewRes').textContent = res;
+
+      const tagsEl = document.getElementById('previewTags');
+      tagsEl.innerHTML = '';
+      if (tags) {
+        tags.split(',').slice(0, 4).forEach(t => {
+          const tt = t.trim();
+          if (tt) tagsEl.innerHTML += `<span class="preview-tag">${tt}</span>`;
+        });
+      }
+
+      const vLabel = selectedVersions.length ? selectedVersions.join(', ') : 'Versions';
+      document.getElementById('previewVersions').textContent = vLabel;
+    }
+
+    function handleThumb(input) {
+      const file = input.files[0];
+      if (!file) return;
+      thumbFile = file;
+      const zone = document.getElementById('thumbZone');
+      zone.classList.add('has-file');
+      document.getElementById('thumbFilename').textContent = '✓ ' + file.name;
+      document.getElementById('thumbFilename').style.display = 'block';
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.getElementById('thumbPreview');
+        const previewImg = document.getElementById('previewImg');
+        const placeholder = document.getElementById('previewPlaceholder');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        previewImg.src = e.target.result;
+        previewImg.style.display = 'block';
+        placeholder.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleVideo(input) {
+      const file = input.files[0];
+      if (!file) return;
+      videoFile = file;
+      document.getElementById('videoZone').classList.add('has-file');
+      document.getElementById('videoFilename').textContent = '✓ ' + file.name;
+      document.getElementById('videoFilename').style.display = 'block';
+    }
+
+    function handleZip(input) {
+      const file = input.files[0];
+      if (!file) return;
+      zipFile = file;
+      document.getElementById('zipZone').classList.add('has-file');
+      document.getElementById('zipFilename').textContent = '✓ ' + file.name;
+      document.getElementById('zipFilename').style.display = 'block';
+    }
+
+    function toggleVersion(el, v) {
+      if (el.classList.contains('selected')) {
+        el.classList.remove('selected');
+        selectedVersions = selectedVersions.filter(x => x !== v);
+      } else {
+        el.classList.add('selected');
+        selectedVersions.push(v);
+      }
+      updatePreview();
+    }
+
+    function buildSummary() {
+      const rows = [
+        ['Nom', document.getElementById('packName').value || '—'],
+        ['Créateur', document.getElementById('packCreator').value || '—'],
+        ['Catégorie', document.getElementById('packCategory').value || '—'],
+        ['Résolution', document.getElementById('packResolution').value || '—'],
+        ['Versions', selectedVersions.length ? selectedVersions.join(', ') : '—'],
+        ['Tags', document.getElementById('packTags').value || '—'],
+        ['Image', thumbFile ? thumbFile.name : '—'],
+        ['Fichier ZIP', zipFile ? zipFile.name : (document.getElementById('externalUrl').value || '—')],
+      ];
+      document.getElementById('summaryContent').innerHTML = rows.map(([k, v]) =>
+        `<div><strong style="color:var(--text-primary);min-width:100px;display:inline-block;">${k}</strong> ${v}</div>`
+      ).join('');
+    }
+
+    async function submitPack() {
+      const btn = document.getElementById('submitBtn');
+      const err = document.getElementById('submitError');
+      err.style.display = 'none';
+
+      const name = document.getElementById('packName').value.trim();
+      const creator = document.getElementById('packCreator').value.trim();
+      const desc = document.getElementById('packDesc').value.trim();
+      const category = document.getElementById('packCategory').value;
+      const resolution = document.getElementById('packResolution').value;
+      const password = document.getElementById('adminPassword').value;
+      const tags = document.getElementById('packTags').value;
+      const externalUrl = document.getElementById('externalUrl').value.trim();
+
+      if (!name || !creator || !desc || !category || !resolution) {
+        err.textContent = 'Veuillez remplir tous les champs obligatoires (étapes 1 à 3).';
+        err.style.display = 'block'; return;
+      }
+      if (selectedVersions.length === 0) {
+        err.textContent = 'Sélectionne au moins une version compatible.';
+        err.style.display = 'block'; return;
+      }
+      if (!zipFile && !externalUrl) {
+        err.textContent = 'Fournis un fichier .zip ou un lien de téléchargement.';
+        err.style.display = 'block'; return;
+      }
+      if (!password) {
+        err.textContent = 'Mot de passe admin requis pour publier.';
+        err.style.display = 'block'; return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Publication...';
+
+      const formData = new FormData();
+      formData.append('password', password);
+      formData.append('name', name);
+      formData.append('creator', creator);
+      formData.append('description', desc);
+      formData.append('resolution', resolution);
+      formData.append('category', category);
+      formData.append('tags', tags);
+      selectedVersions.forEach(v => formData.append('versions', v));
+
+      if (externalUrl) {
+        formData.append('isExternal', 'true');
+        formData.append('externalUrl', externalUrl);
+      } else {
+        formData.append('isExternal', 'false');
+        formData.append('packFile', zipFile);
+      }
+      if (thumbFile) formData.append('thumbnail', thumbFile);
+      if (videoFile) formData.append('previewVideo', videoFile);
+
+      try {
+        const res = await fetch('/api/packs/upload', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('step4').style.display = 'none';
+          document.getElementById('successSection').style.display = 'block';
+        } else {
+          err.textContent = data.error || 'Erreur lors de la publication.';
+          err.style.display = 'block';
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publier le pack';
+        }
+      } catch (e) {
+        err.textContent = 'Erreur réseau. Vérifie ta connexion.';
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Publier le pack';
+      }
+    }
+
+    function resetBuilder() {
+      location.reload();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  ssk-pack:
+    build: .
+    container_name: ssk-pack-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      # Volume nommé pour la base de données → persiste même si le dossier du projet change
+      - ssk_database:/app/database
+      # Volume nommé pour les uploads (images, packs, vidéos)
+      - ssk_uploads:/app/public/uploads
+    environment:
+      - PORT=3000
+      - ADMIN_PASSWORD=sskadmin123
+
+# Déclaration des volumes nommés Docker (données conservées entre redémarrages)
+volumes:
+  ssk_database:
+  ssk_uploads:

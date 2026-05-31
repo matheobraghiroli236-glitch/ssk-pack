@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSK PACK | Librairie de Texture Packs PvP Minecraft</title>
+  <meta name="description" content="Découvrez et téléchargez les meilleurs packs de texture Minecraft PvP (1.8.9 - 1.21.4) pour le NoDebuff, Boxing, UHC et plus. Optimisé pour les FPS.">
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="header">
+      <a href="/" class="logo-container" id="logoLink">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">SSK <span>PACK</span></div>
+      </a>
+      
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="/" class="nav-link active" id="navHome">Accueil</a>
+        <a href="/pack-builder.html" id="navBuilder" style="padding: 8px 16px; font-size: 0.8rem; height: 38px; display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, rgba(255,42,75,0.15), rgba(255,42,75,0.08)); border: 1px solid rgba(255,42,75,0.35); color: #ff2a4b; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s;">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Pack Builder
+        </a>
+        <a href="/admin.html" class="btn btn-secondary" id="navAdmin" style="padding: 8px 16px; font-size: 0.8rem; height: 38px; display: inline-flex; align-items: center; gap: 6px;">
+          <i class="fa-solid fa-lock"></i> Connexion Admin
+        </a>
+      </nav>
+      
+      <div class="status-badge" id="serverStatus">
+        <div class="status-dot"></div>
+        <span>AUTO-HÉBERGÉ</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      
+      <!-- Hero Section -->
+      <section class="hero" id="heroSection">
+        <div class="hero-tag">
+          <div class="tag-dot"></div>
+          <span>+ COMPILATION PVP PREMIUM - SSK PACK</span>
+        </div>
+        <h1 class="hero-title" id="mainHeading">
+          SSK <span>PACK</span>
+        </h1>
+        <p class="hero-subtitle">
+          Trouvez et téléchargez le pack de texture idéal pour le PvP. Spécialement triés pour le <strong>NoDebuff, Boxing, UHC, Rush</strong> et optimisés pour toutes les versions de la <strong>1.8.9 à la 1.21.4</strong>.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalog" class="btn btn-primary" id="btnExplore">Découvrir les packs</a>
+          <a href="/admin.html" class="btn btn-secondary" id="btnAddPackHero">Ajouter un pack</a>
+        </div>
+      </section>
+
+      <div class="hero-divider"></div>
+
+      <!-- Catalog Section -->
+      <section class="catalog-section" id="catalog">
+        
+        <!-- Filter Wrapper -->
+        <div class="filter-wrapper">
+          <!-- Top filter row -->
+          <div class="filter-top">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="searchInput" placeholder="Rechercher un pack ou un créateur..." aria-label="Rechercher un pack">
+            </div>
+            
+            <div class="filter-group">
+              <label for="versionFilter" class="filter-label">Version</label>
+              <select id="versionFilter" class="select-custom" aria-label="Filtrer par version">
+                <option value="all">Toutes versions</option>
+                <option value="1.8.9">1.8.9 (PvP Classique)</option>
+                <option value="1.12.2">1.12.2</option>
+                <option value="1.16.5">1.16.5</option>
+                <option value="1.18.2">1.18.2</option>
+                <option value="1.20.x">1.20.x</option>
+                <option value="1.21.4">1.21.4 (PvP Moderne)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="resFilter" class="filter-label">Résolution</label>
+              <select id="resFilter" class="select-custom" aria-label="Filtrer par résolution">
+                <option value="all">Toutes résolutions</option>
+                <option value="8x">8x (Max FPS)</option>
+                <option value="16x">16x (Standard)</option>
+                <option value="32x">32x (Détaillé)</option>
+                <option value="64x">64x (Haute Qualité)</option>
+                <option value="128x">128x (Ultra-Détaillé)</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="sortSelect" class="filter-label">Trier par</label>
+              <select id="sortSelect" class="select-custom" aria-label="Trier les packs">
+                <option value="latest">Plus récents</option>
+                <option value="downloads">Plus téléchargés</option>
+                <option value="likes">Plus aimés</option>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Bottom filter row: Categories -->
+          <div class="filter-group">
+            <label class="filter-label">Catégorie PvP</label>
+            <div class="categories-container" id="categoryContainer" role="group" aria-label="Filtrer par catégorie PvP">
+              <button type="button" class="cat-pill active" data-category="all">Tous</button>
+              <button type="button" class="cat-pill cat-pill--favoris" data-category="favoris">⭐ Favoris</button>
+              <button type="button" class="cat-pill" data-category="UHC">UHC</button>
+              <button type="button" class="cat-pill" data-category="NoDebuff">NoDebuff / PotPvP</button>
+              <button type="button" class="cat-pill" data-category="Boxing">Boxing</button>
+              <button type="button" class="cat-pill" data-category="Rush">Rush / Bedwars</button>
+              <button type="button" class="cat-pill" data-category="FPS Boost">FPS Boost</button>
+              <button type="button" class="cat-pill" data-category="Sky">Sky</button>
+              <button type="button" class="cat-pill" data-category="Overlay">Overlay</button>
+              <button type="button" class="cat-pill" data-category="Faction Pack">Faction Pack</button>
+              <button type="button" class="cat-pill" data-category="Autre">Autre PvP</button>
+              <button type="button" class="cat-pill" data-category="Pays">🌍 Pays</button>
+              <button type="button" class="cat-pill" data-category="Modée">🗡️ Modée</button>
+              <button type="button" class="cat-pill" data-category="Overlay Block">Overlay Block</button>
+              <button type="button" class="cat-pill" data-category="Durability Armor">Durability Armor</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Cards -->
+        <div class="packs-grid" id="packsGrid">
+          <!-- Rempli dynamiquement en JS -->
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 <strong>SSK PACK</strong>. Développé avec <span>&hearts;</span> pour la communauté PvP. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Pack Detail Modal -->
+    <div class="modal-overlay" id="detailModalOverlay">
+      <div class="modal-container" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalPackTitle">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modalPackTitle">Détails du Pack</h2>
+          <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Fermer la fenêtre"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-gallery" id="modalGallery">
+            <!-- Image de miniature / screenshots -->
+            <img src="/uploads/screenshots/default-thumb.jpg" id="modalImage" alt="Aperçu du Pack" style="display:block;">
+            <!-- Prévisualisation vidéo (Sky uniquement) -->
+            <video id="modalVideo" controls style="display:none; width:100%; border-radius:8px; background:#000; max-height:280px;">
+              Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+          </div>
+          <div class="modal-details">
+            <div class="details-left">
+              <h3 id="modalPackName">Nom du pack</h3>
+              <p id="modalDescription">Description du pack...</p>
+              
+              <div class="filter-label" style="margin-bottom: 8px;">Versions compatibles</div>
+              <div class="versions-list" id="modalVersions">
+                <!-- Badges de version -->
+              </div>
+
+              <div class="filter-label" style="margin-bottom: 8px; margin-top: 16px;">Tags</div>
+              <div class="versions-list" id="modalTags">
+                <!-- Badges de tags -->
+              </div>
+            </div>
+            
+            <div class="details-right">
+              <div class="detail-stat">
+                <span>Créateur :</span>
+                <span id="modalCreator">SSK</span>
+              </div>
+              <div class="detail-stat">
+                <span>Résolution :</span>
+                <span id="modalResolution">16x</span>
+              </div>
+              <div class="detail-stat">
+                <span>Catégorie :</span>
+                <span id="modalCategory">Boxing</span>
+              </div>
+              <div class="detail-stat">
+                <span>Téléchargements :</span>
+                <span id="modalDownloads">0</span>
+              </div>
+              <div class="detail-stat">
+                <span>Likes :</span>
+                <span id="modalLikes">0</span>
+              </div>
+              
+              <button type="button" class="btn btn-primary" id="modalDlBtn" style="margin-top: 10px; width: 100%;">
+                <i class="fa-solid fa-download"></i> Télécharger
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Popup renommage téléchargement -->
+  <!-- Popup téléchargement avec renommage + icône pack.png -->
+  <div class="modal-overlay" id="renameModalOverlay">
+    <div class="modal-container" id="renameModal" role="dialog" aria-modal="true" style="max-width:500px;">
+      <div class="modal-header">
+        <h2 class="modal-title"><i class="fa-solid fa-file-zipper" style="color:var(--accent-red);margin-right:8px;"></i>Télécharger le pack</h2>
+        <button type="button" class="modal-close" id="renameModalClose" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-content" style="padding:24px 28px 28px;">
+
+        <!-- Nom du fichier -->
+        <p style="color:var(--text-muted);font-size:0.82rem;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;">Nom du fichier</p>
+        <div style="display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,0.1);border-radius:8px;overflow:hidden;background:var(--bg-tertiary);margin-bottom:24px;">
+          <input type="text" id="renameInput" style="flex:1;background:transparent;border:none;outline:none;padding:12px 14px;color:var(--text-primary);font-size:0.95rem;font-family:var(--font-body);" placeholder="Nom du fichier">
+          <span style="padding:12px 14px;color:var(--text-muted);font-size:0.85rem;border-left:1px solid rgba(255,255,255,0.1);white-space:nowrap;" id="renameExt">.zip</span>
+        </div>
+
+        <!-- Icône pack.png -->
+        <p style="color:var(--text-muted);font-size:0.82rem;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;">Icône pack.png <span style="color:var(--text-muted);font-size:0.75rem;text-transform:none;letter-spacing:0;">(optionnel)</span></p>
+        <div id="iconGrid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:8px;">
+          <!-- Icônes SVG générées par JS -->
+        </div>
+        <p style="color:var(--text-muted);font-size:0.75rem;margin-top:6px;" id="iconSelectedLabel">Aucune icône sélectionnée — le pack.png original sera conservé</p>
+
+        <div style="display:flex;gap:10px;margin-top:20px;">
+          <button type="button" id="renameCancelBtn" class="btn btn-secondary" style="flex:1;">Annuler</button>
+          <button type="button" id="renameConfirmBtn" class="btn btn-primary" style="flex:2;">
+            <i class="fa-solid fa-download"></i> Télécharger
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

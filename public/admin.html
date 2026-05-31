@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSK PACK | Administration - Ajouter un Pack</title>
+  <meta name="description" content="Espace d'administration pour téléverser et configurer des packs de texture Minecraft.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="header">
+      <a href="/" class="logo-container" id="logoLink">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">SSK <span>PACK</span></div>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="/" class="nav-link" id="navHome">Accueil</a>
+        <a href="/admin.html" class="btn btn-secondary" id="navAdmin" style="padding: 8px 16px; font-size: 0.8rem; height: 38px; display: inline-flex; align-items: center; gap: 6px; border-color: var(--accent-red); color: var(--accent-red);">
+          <i class="fa-solid fa-lock-open"></i> Console Admin
+        </a>
+      </nav>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span>CONSOLE ADMIN</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding: 40px 4%;">
+      
+      <!-- Écran de Connexion Admin (Seul le mot de passe est demandé au début) -->
+      <div class="admin-card" id="loginCard" style="max-width: 450px; margin: 60px auto;">
+        <div style="text-align: center; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+          <h1 style="font-family: var(--font-title); font-size: 1.6rem; font-weight: 800; text-transform: uppercase;">
+            <i class="fa-solid fa-lock" style="color: var(--accent-red); margin-right: 8px;"></i>
+            Connexion <span>Admin</span>
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 8px;">Entrez le mot de passe pour déverrouiller l'ajout de packs</p>
+        </div>
+
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="adminPassword"><i class="fa-solid fa-key"></i> Mot de passe de sécurité</label>
+            <input type="password" id="adminPassword" required placeholder="Entrez le mot de passe">
+          </div>
+          <div id="loginAlertBox" class="hidden" style="padding: 12px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.85rem;"></div>
+          <button type="submit" class="btn btn-primary" id="btnLoginSubmit" style="width: 100%; height: 46px;">
+            <i class="fa-solid fa-right-to-bracket"></i> Se connecter
+          </button>
+        </form>
+      </div>
+
+      <!-- Écran d'ajout de pack (Masqué par défaut, révélé après connexion réussie) -->
+      <div class="admin-card hidden" id="adminFormCard">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+          <h1 style="font-family: var(--font-title); font-size: 1.8rem; font-weight: 800; text-transform: uppercase;">
+            <i class="fa-solid fa-cloud-arrow-up" style="color: var(--accent-red); margin-right: 8px;"></i>
+            Ajouter un <span>Pack</span>
+          </h1>
+          <div style="display: flex; gap: 10px;">
+            <button type="button" class="btn btn-secondary" id="btnLogout" style="padding: 8px 16px; font-size: 0.8rem; border-color: rgba(255,42,75,0.4); color: var(--accent-red);">
+              <i class="fa-solid fa-power-off"></i> Déconnexion
+            </button>
+            <a href="/" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.8rem;">
+              <i class="fa-solid fa-arrow-left"></i> Retour
+            </a>
+          </div>
+        </div>
+
+        <form id="uploadForm">
+          <!-- Mot de passe caché (rempli automatiquement) -->
+          <input type="hidden" id="password" name="password">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <!-- Pack Name -->
+            <div class="form-group">
+              <label for="name">Nom du Pack *</label>
+              <input type="text" id="name" name="name" required placeholder="Ex: Crystal Blood 32x">
+            </div>
+
+            <!-- Creator Name -->
+            <div class="form-group">
+              <label for="creator">Créateur *</label>
+              <input type="text" id="creator" name="creator" required placeholder="Ex: SSK Studio">
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description">Description complète *</label>
+            <textarea id="description" name="description" required placeholder="Décrivez les spécificités du pack, le style visuel, les optimisations de performance, etc."></textarea>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <!-- Resolution -->
+            <div class="form-group">
+              <label for="resolution">Résolution *</label>
+              <select id="resolution" name="resolution" required>
+                <option value="8x">8x (FPS Boost)</option>
+                <option value="16x" selected>16x (Standard)</option>
+                <option value="32x">32x (Détaillé)</option>
+                <option value="64x">64x (Haute Qualité)</option>
+                <option value="128x">128x (Ultra-Détaillé)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Catégorie *</label>
+              <select id="category" name="category" required>
+                <optgroup label="⚔️ PvP">
+                  <option value="UHC" selected>UHC</option>
+                  <option value="NoDebuff">NoDebuff / PotPvP</option>
+                  <option value="Boxing">Boxing</option>
+                  <option value="Rush">Rush / Bedwars</option>
+                  <option value="FPS Boost">FPS Boost</option>
+                  <option value="Autre">Autre PvP</option>
+                </optgroup>
+                <optgroup label="🎨 Visuels">
+                  <option value="Sky">Sky</option>
+                  <option value="Overlay">Overlay</option>
+                </optgroup>
+                <optgroup label="🌍 Pays">
+                  <option value="Pays">Pays</option>
+                </optgroup>
+                <optgroup label="🗡️ Modée">
+                  <option value="Modée">Modée</option>
+                </optgroup>
+                <optgroup label="🧱 Autres">
+                  <option value="Overlay Block">Overlay Block</option>
+                  <option value="Durability Armor">Durability Armor</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <!-- Minecraft Versions (Checkboxes) -->
+          <div class="form-group">
+            <label>Versions de Minecraft supportées *</label>
+            <div class="checkbox-grid">
+              <label class="checkbox-label">
+                <input type="checkbox" name="versions" value="1.8.9" checked> 1.8.9
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="versions" value="1.12.2"> 1.12.2
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="versions" value="1.16.5"> 1.16.5
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="versions" value="1.18.2"> 1.18.2
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="versions" value="1.20.x"> 1.20.x
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="versions" value="1.21.4" checked> 1.21.4
+              </label>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="form-group">
+            <label for="tags">Tags (séparés par des virgules)</label>
+            <input type="text" id="tags" name="tags" placeholder="Ex: Short Swords, Ore Borders, Red Sky">
+          </div>
+
+          <!-- Upload type selection -->
+          <div class="form-group">
+            <label for="isExternal">Source du fichier .zip *</label>
+            <select id="isExternal" name="isExternal" required>
+              <option value="false">Téléverser le fichier .zip localement (Auto-Hébergé)</option>
+              <option value="true">Lien de téléchargement externe (Drive, Mediafire, Mega...)</option>
+            </select>
+          </div>
+
+          <!-- Direct zip upload -->
+          <div class="form-group" id="localZipGroup">
+            <label>Fichier du Pack (.zip) *</label>
+            <div class="file-dropzone" id="zipDropzone">
+              <i class="fa-solid fa-file-zipper"></i>
+              <p>Glissez-déposez le fichier .zip ici, ou cliquez pour parcourir</p>
+              <input type="file" id="packFile" name="packFile" accept=".zip" class="hidden">
+              <div class="file-name-preview" id="zipNamePreview"></div>
+            </div>
+          </div>
+
+          <!-- External URL -->
+          <div class="form-group hidden" id="externalUrlGroup">
+            <label for="externalUrl">Lien externe du pack *</label>
+            <input type="text" id="externalUrl" name="externalUrl" placeholder="https://www.mediafire.com/... ou Google Drive">
+          </div>
+
+          <!-- Thumbnail upload -->
+          <div class="form-group">
+            <label>Image de miniature / Screenshot d'aperçu *</label>
+            <div class="file-dropzone" id="thumbDropzone">
+              <i class="fa-solid fa-image"></i>
+              <p>Glissez-déposez une image (.jpg, .png, .webp) ici, ou cliquez pour parcourir</p>
+              <input type="file" id="thumbnail" name="thumbnail" accept="image/*" class="hidden" required>
+              <div class="file-name-preview" id="thumbNamePreview"></div>
+            </div>
+          </div>
+
+          <!-- Video preview upload (Sky only) -->
+          <div class="form-group" id="videoUploadGroup" style="display:none;">
+            <label>Vidéo de prévisualisation <span style="color:var(--accent-red)">Sky</span> <small style="color:var(--text-muted)">(mp4, webm — max 100 Mo)</small></label>
+            <div class="file-dropzone" id="videoDropzone" style="border-color: rgba(99,179,237,0.35); background: rgba(99,179,237,0.05);">
+              <i class="fa-solid fa-film" style="color:#63b3ed;"></i>
+              <p>Glissez-déposez une vidéo ici, ou cliquez pour parcourir</p>
+              <input type="file" id="previewVideo" name="previewVideo" accept="video/mp4,video/webm" class="hidden">
+              <div class="file-name-preview" id="videoNamePreview"></div>
+            </div>
+          </div>
+
+          <!-- Submit Message Alert -->
+          <div id="alertBox" class="hidden" style="padding: 16px; border-radius: 8px; margin-bottom: 24px; font-weight: 600; font-size: 0.9rem;"></div>
+
+          <button type="submit" class="btn btn-primary" id="btnSubmitForm" style="width: 100%; height: 50px;">
+            <i class="fa-solid fa-plus"></i> Créer le Pack de Texture
+          </button>
+        </form>
+      </div>
+
+      <!-- Section : Gérer les packs existants -->
+      <div class="admin-card hidden" id="managePacksCard" style="margin-top: 32px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;">
+          <h2 style="font-family: var(--font-title); font-size: 1.4rem; font-weight: 800; text-transform: uppercase;">
+            <i class="fa-solid fa-trash-can" style="color: var(--accent-red); margin-right: 8px;"></i>
+            Gérer les <span>Packs</span>
+          </h2>
+          <span id="packCountBadge" style="background: rgba(255,42,75,0.12); border: 1px solid rgba(255,42,75,0.3); color: var(--accent-red); font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 20px;">0 pack(s)</span>
+        </div>
+        <div id="managePacksList" style="display: flex; flex-direction: column; gap: 12px;">
+          <p style="color: var(--text-muted); text-align: center;">Chargement des packs...</p>
+        </div>
+      </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 <strong>SSK PACK</strong>. Développé avec <span>&hearts;</span> pour la communauté PvP. Tous droits réservés.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Éléments DOM Connexion Admin
+    const loginForm = document.getElementById('loginForm');
+    const loginCard = document.getElementById('loginCard');
+    const adminFormCard = document.getElementById('adminFormCard');
+    const adminPasswordInput = document.getElementById('adminPassword');
+    const loginAlertBox = document.getElementById('loginAlertBox');
+    const btnLogout = document.getElementById('btnLogout');
+
+    // Éléments DOM Formulaire d'Upload
+    const uploadForm = document.getElementById('uploadForm');
+    const isExternalSelect = document.getElementById('isExternal');
+    const localZipGroup = document.getElementById('localZipGroup');
+    const externalUrlGroup = document.getElementById('externalUrlGroup');
+    const alertBox = document.getElementById('alertBox');
+    const hiddenPasswordInput = document.getElementById('password');
+    
+    // File inputs & preview elements
+    const packFileInput = document.getElementById('packFile');
+    const zipDropzone = document.getElementById('zipDropzone');
+    const zipNamePreview = document.getElementById('zipNamePreview');
+
+    const thumbnailInput = document.getElementById('thumbnail');
+    const thumbDropzone = document.getElementById('thumbDropzone');
+    const thumbNamePreview = document.getElementById('thumbNamePreview');
+
+    // Charger et vérifier le mot de passe stocké au démarrage
+    document.addEventListener('DOMContentLoaded', async () => {
+      const storedPassword = localStorage.getItem('ssk_admin_password');
+      if (storedPassword) {
+        const isVerified = await verifyPassword(storedPassword);
+        if (isVerified) {
+          showUploadForm(storedPassword);
+        } else {
+          localStorage.removeItem('ssk_admin_password');
+        }
+      }
+    });
+
+    // Fonction pour vérifier le mot de passe auprès de l'API
+    async function verifyPassword(pwd) {
+      try {
+        const response = await fetch('/api/admin/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pwd })
+        });
+        if (!response.ok) {
+          const data = await response.json().catch(() => ({}));
+          throw new Error(data.error || 'Mot de passe incorrect');
+        }
+        return true;
+      } catch (e) {
+        if (e.message === 'Failed to fetch' || e.name === 'TypeError') {
+          showLoginAlert('Impossible de joindre le serveur. Vérifiez que le serveur tourne sur localhost:3000.', 'error');
+        } else {
+          showLoginAlert(e.message || 'Mot de passe incorrect !', 'error');
+        }
+        return false;
+      }
+    }
+
+    // Afficher l'interface d'ajout et cacher la connexion
+    function showUploadForm(pwd) {
+      hiddenPasswordInput.value = pwd;
+      loginCard.classList.add('hidden');
+      adminFormCard.classList.remove('hidden');
+      document.getElementById('managePacksCard').classList.remove('hidden');
+      loadManagePacks();
+      
+      // Mettre à jour l'icône dans la barre de navigation
+      const navAdminIcon = document.querySelector('#navAdmin i');
+      if (navAdminIcon) {
+        navAdminIcon.className = 'fa-solid fa-lock-open';
+      }
+    }
+
+    // Gérer la soumission du formulaire de connexion
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      showLoginAlert('Vérification...', 'info');
+      const pwd = adminPasswordInput.value;
+
+      const isVerified = await verifyPassword(pwd);
+      if (isVerified) {
+        localStorage.setItem('ssk_admin_password', pwd);
+        showLoginAlert('Connexion réussie !', 'success');
+        setTimeout(() => {
+          showUploadForm(pwd);
+        }, 800);
+      } else {
+        // Le message d'erreur est déjà affiché dans verifyPassword
+        adminPasswordInput.value = '';
+      }
+    });
+
+    // Gérer la déconnexion
+    btnLogout.addEventListener('click', () => {
+      localStorage.removeItem('ssk_admin_password');
+      hiddenPasswordInput.value = '';
+      adminPasswordInput.value = '';
+      
+      adminFormCard.classList.add('hidden');
+      loginCard.classList.remove('hidden');
+      loginAlertBox.classList.add('hidden');
+      
+      // Remettre l'icône verrouillée dans la nav
+      const navAdminIcon = document.querySelector('#navAdmin i');
+      if (navAdminIcon) {
+        navAdminIcon.className = 'fa-solid fa-lock';
+      }
+      
+      uploadForm.reset();
+      zipNamePreview.innerText = "";
+      thumbNamePreview.innerText = "";
+    });
+
+    // Basculer entre upload local et externe
+    isExternalSelect.addEventListener('change', () => {
+      const isExt = isExternalSelect.value === 'true';
+      if (isExt) {
+        localZipGroup.classList.add('hidden');
+        packFileInput.required = false;
+        externalUrlGroup.classList.remove('hidden');
+        document.getElementById('externalUrl').required = true;
+      } else {
+        localZipGroup.classList.remove('hidden');
+        packFileInput.required = true;
+        externalUrlGroup.classList.add('hidden');
+        document.getElementById('externalUrl').required = false;
+      }
+    });
+
+    // Auto-catégorisation basée sur les tags saisis
+    const tagsInput = document.getElementById('tags');
+    const categorySelect = document.getElementById('category');
+    
+    tagsInput.addEventListener('input', () => {
+      const val = tagsInput.value.toLowerCase();
+      if (val.includes('nodebuff') || val.includes('potpvp')) {
+        categorySelect.value = 'NoDebuff';
+      } else if (val.includes('uhc')) {
+        categorySelect.value = 'UHC';
+      } else if (val.includes('boxing')) {
+        categorySelect.value = 'Boxing';
+      } else if (val.includes('rush') || val.includes('bedwars')) {
+        categorySelect.value = 'Rush';
+      } else if (val.includes('fps') || val.includes('boost')) {
+        categorySelect.value = 'FPS Boost';
+      } else if (val.includes('default')) {
+        categorySelect.value = 'Default Edit';
+      }
+    });
+
+    // Afficher/masquer le champ vidéo selon la catégorie Sky
+    const videoUploadGroup = document.getElementById('videoUploadGroup');
+    const videoDropzone = document.getElementById('videoDropzone');
+    const previewVideoInput = document.getElementById('previewVideo');
+    const videoNamePreview = document.getElementById('videoNamePreview');
+
+    function toggleVideoField() {
+      const cat = categorySelect.value;
+      if (cat === 'Sky' || cat === 'Overlay') {
+        videoUploadGroup.style.display = '';
+        thumbnailInput.required = false;
+        const label = cat === 'Overlay'
+          ? 'Optionnel pour Overlay — une vidéo peut remplacer l\'image<br><small style="color:var(--text-muted)">(.jpg, .png, .webp)</small>'
+          : 'Optionnel pour Sky — sinon une miniature vidéo sera utilisée<br><small style="color:var(--text-muted)">(.jpg, .png, .webp)</small>';
+        thumbDropzone.querySelector('p').innerHTML = label;
+        videoUploadGroup.querySelector('label').innerHTML =
+          `Vidéo de prévisualisation <span style="color:var(--accent-red)">\${cat}</span> <small style="color:var(--text-muted)">(mp4, webm — max 100 Mo)</small>`;
+      } else {
+        videoUploadGroup.style.display = 'none';
+        if (previewVideoInput) previewVideoInput.value = '';
+        if (videoNamePreview) videoNamePreview.innerText = '';
+        thumbnailInput.required = true;
+        thumbDropzone.querySelector('p').innerHTML = 'Glissez-déposez une image (.jpg, .png, .webp) ici, ou cliquez pour parcourir';
+      }
+    }
+    categorySelect.addEventListener('change', toggleVideoField);
+
+    // Gestion Drag & Drop pour le fichier ZIP
+    zipDropzone.addEventListener('click', () => packFileInput.click());
+    packFileInput.addEventListener('change', () => displayFileName(packFileInput, zipNamePreview));
+
+    // Gestion Drag & Drop pour l'image
+    thumbDropzone.addEventListener('click', () => thumbnailInput.click());
+    thumbnailInput.addEventListener('change', () => displayFileName(thumbnailInput, thumbNamePreview));
+
+    // Gestion Drag & Drop pour la vidéo
+    videoDropzone.addEventListener('click', () => previewVideoInput.click());
+    previewVideoInput.addEventListener('change', () => displayFileName(previewVideoInput, videoNamePreview));
+
+    // Configurer le drag-over styling
+    [zipDropzone, thumbDropzone, videoDropzone].forEach(zone => {
+      zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        zone.classList.add('dragover');
+      });
+      zone.addEventListener('dragleave', () => {
+        zone.classList.remove('dragover');
+      });
+      zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        zone.classList.remove('dragover');
+      });
+    });
+
+    zipDropzone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files.length > 0) {
+        packFileInput.files = e.dataTransfer.files;
+        displayFileName(packFileInput, zipNamePreview);
+      }
+    });
+
+    thumbDropzone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files.length > 0) {
+        thumbnailInput.files = e.dataTransfer.files;
+        displayFileName(thumbnailInput, thumbNamePreview);
+      }
+    });
+
+    videoDropzone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files.length > 0) {
+        previewVideoInput.files = e.dataTransfer.files;
+        displayFileName(previewVideoInput, videoNamePreview);
+      }
+    });
+
+    function displayFileName(input, previewElement) {
+      if (input.files && input.files.length > 0) {
+        previewElement.innerText = "Fichier sélectionné : " + input.files[0].name;
+      } else {
+        previewElement.innerText = "";
+      }
+    }
+
+    // Gérer l'envoi du formulaire d'upload
+    uploadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      showAlert('Veuillez patienter, téléversement en cours...', 'info');
+      const submitBtn = document.getElementById('btnSubmitForm');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
+
+      const formData = new FormData(uploadForm);
+      
+      // S'assurer d'envoyer la valeur correcte pour isExternal (booleen)
+      formData.set('isExternal', isExternalSelect.value === 'true');
+
+      try {
+        const response = await fetch('/api/packs/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          if (response.status === 401) {
+            localStorage.removeItem('ssk_admin_password');
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          }
+          throw new Error(data.error || 'Erreur inconnue lors de la soumission.');
+        }
+
+        showAlert('Félicitations ! Le pack de texture a été ajouté avec succès.', 'success');
+        uploadForm.reset();
+        zipNamePreview.innerText = "";
+        thumbNamePreview.innerText = "";
+        
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 2000);
+
+      } catch (err) {
+        showAlert(err.message, 'error');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-plus"></i> Créer le Pack de Texture';
+      }
+    });
+
+    function showLoginAlert(message, type) {
+      loginAlertBox.classList.remove('hidden');
+      loginAlertBox.innerText = message;
+      
+      if (type === 'success') {
+        loginAlertBox.style.background = 'rgba(0, 255, 102, 0.1)';
+        loginAlertBox.style.border = '1px solid #00ff66';
+        loginAlertBox.style.color = '#00ff66';
+      } else if (type === 'error') {
+        loginAlertBox.style.background = 'rgba(255, 42, 75, 0.1)';
+        loginAlertBox.style.border = '1px solid var(--accent-red)';
+        loginAlertBox.style.color = 'var(--accent-red)';
+      } else {
+        loginAlertBox.style.background = 'rgba(255, 255, 255, 0.05)';
+        loginAlertBox.style.border = '1px solid var(--text-muted)';
+        loginAlertBox.style.color = '#fff';
+      }
+    }
+
+    function showAlert(message, type) {
+      alertBox.classList.remove('hidden');
+      alertBox.innerText = message;
+      
+      if (type === 'success') {
+        alertBox.style.background = 'rgba(0, 255, 102, 0.1)';
+        alertBox.style.border = '1px solid #00ff66';
+        alertBox.style.color = '#00ff66';
+      } else if (type === 'error') {
+        alertBox.style.background = 'rgba(255, 42, 75, 0.1)';
+        alertBox.style.border = '1px solid var(--accent-red)';
+        alertBox.style.color = 'var(--accent-red)';
+      } else {
+        alertBox.style.background = 'rgba(255, 255, 255, 0.05)';
+        alertBox.style.border = '1px solid var(--text-muted)';
+        alertBox.style.color = '#fff';
+      }
+    }
+
+    // ── Gestion des packs existants ──────────────────────────────────────────
+
+    async function loadManagePacks() {
+      const list = document.getElementById('managePacksList');
+      const badge = document.getElementById('packCountBadge');
+      list.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Chargement...</p>';
+      try {
+        const res = await fetch('/api/packs');
+        const packs = await res.json();
+        badge.innerText = packs.length + ' pack(s)';
+        if (packs.length === 0) {
+          list.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Aucun pack enregistré.</p>';
+          return;
+        }
+        list.innerHTML = packs.map(pack => `
+          <div id="pack-row-${pack.id}" style="display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 16px;">
+            <img src="${pack.thumbnailUrl}" alt="" onerror="this.src='/uploads/screenshots/default-thumb.jpg'" style="width: 64px; height: 48px; object-fit: cover; border-radius: 6px; flex-shrink: 0; background:#111;">
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-weight: 700; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${pack.name}</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+                <span style="color: var(--accent-red); font-weight: 600;">${pack.category}</span>
+                &nbsp;·&nbsp;${pack.resolution}
+                &nbsp;·&nbsp;${pack.downloads} dl
+                &nbsp;·&nbsp;Ajouté le ${pack.dateAdded}
+              </div>
+            </div>
+            <button onclick="deletePack('${pack.id}')" style="flex-shrink: 0; background: rgba(255,42,75,0.12); border: 1px solid rgba(255,42,75,0.35); color: var(--accent-red); border-radius: 8px; padding: 8px 16px; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,42,75,0.25)'" onmouseout="this.style.background='rgba(255,42,75,0.12)'">
+              <i class="fa-solid fa-trash"></i> Supprimer
+            </button>
+          </div>
+        `).join('');
+      } catch (e) {
+        list.innerHTML = '<p style="color: var(--accent-red);">Erreur lors du chargement des packs.</p>';
+      }
+    }
+
+    async function deletePack(id) {
+      if (!confirm('Supprimer ce pack définitivement ? Cette action est irréversible.')) return;
+      const pwd = hiddenPasswordInput.value;
+      try {
+        const res = await fetch(`/api/packs/${id}`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pwd })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Erreur lors de la suppression.');
+        // Retirer la ligne sans recharger toute la liste
+        const row = document.getElementById(`pack-row-${id}`);
+        if (row) {
+          row.style.transition = 'opacity 0.3s';
+          row.style.opacity = '0';
+          setTimeout(() => {
+            row.remove();
+            const remaining = document.querySelectorAll('[id^="pack-row-"]').length;
+            document.getElementById('packCountBadge').innerText = remaining + ' pack(s)';
+            if (remaining === 0) {
+              document.getElementById('managePacksList').innerHTML = '<p style="color: var(--text-muted); text-align: center;">Aucun pack enregistré.</p>';
+            }
+          }, 300);
+        }
+      } catch (e) {
+        alert('Erreur : ' + e.message);
+      }
+    }
+  </script>
+</body>
+</html>
