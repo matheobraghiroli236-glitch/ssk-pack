@@ -185,30 +185,45 @@ function renderArmors() {
 
   grid.classList.remove('empty-category');
 
+  // Cleanup des viewers 3D existants avant re-render
+  document.querySelectorAll('canvas[id^="armor-canvas-"]').forEach(c => {
+    if (c._skinViewer) { try { c._skinViewer.dispose(); } catch(e) {} c._skinViewer = null; }
+  });
+
+  // Carte "Aucune armure"
   const noArmorHtml = `
     <div class="armor-card" data-id="none" style="
-      flex-shrink:0; width:100px; display:flex; flex-direction:column; align-items:center; position:relative;
+      flex-shrink:0; width:110px; display:flex; flex-direction:column; align-items:center; position:relative;
       background:var(--bg-secondary); border:2px solid ${selection.armors === null ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
       border-radius:12px; cursor:pointer; transition:all 0.2s; padding:10px 6px; gap:6px;
     ">
-      <div style="width:60px; height:88px; display:flex; align-items:center; justify-content:center;">
+      <div style="width:70px; height:100px; display:flex; align-items:center; justify-content:center;">
         <i class="fa-solid fa-ban" style="font-size:2rem; color:rgba(255,255,255,0.15);"></i>
       </div>
       <div style="font-size:0.62rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center;">Aucune</div>
     </div>
   `;
 
+  // Cartes armures avec canvas 3D
   const armorsHtml = armors.map(armor => {
     const isSelected = selection.armors && selection.armors.id === armor.id;
-    const previewSrc = armor.preview || (armor.files && armor.files[0] ? armor.files[0].file : '');
+    const layer1 = armor.files && armor.files[0] ? armor.files[0].file : '';
+    const layer2 = armor.files && armor.files[1] ? armor.files[1].file : '';
     return `
       <div class="armor-card" data-id="${armor.id}" style="
-        flex-shrink:0; width:100px; display:flex; flex-direction:column; align-items:center; position:relative;
+        flex-shrink:0; width:110px; display:flex; flex-direction:column; align-items:center; position:relative;
         background:var(--bg-secondary); border:2px solid ${isSelected ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
         border-radius:12px; cursor:pointer; transition:all 0.2s; padding:6px; gap:4px;
         ${isSelected ? 'box-shadow:0 0 0 1px var(--accent-red), 0 6px 24px rgba(255,42,75,0.3);' : ''}
       ">
-        <img src="${previewSrc}" alt="${armor.name}" style="width:88px; height:110px; object-fit:cover; border-radius:8px; image-rendering:pixelated; background:#111;">
+        <canvas
+          id="armor-canvas-${armor.id}"
+          width="100"
+          height="130"
+          style="border-radius:8px; background:transparent;"
+          data-layer1="${layer1}"
+          data-layer2="${layer2}"
+        ></canvas>
         <div style="font-size:0.6rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center; padding:0 2px;">${armor.name}</div>
         ${isSelected ? '<div style="position:absolute;top:4px;right:4px;width:16px;height:16px;background:var(--accent-red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-family:\'Font Awesome 6 Free\';font-weight:900;">&#xf00c;</div>' : ''}
       </div>
@@ -217,6 +232,129 @@ function renderArmors() {
 
   grid.innerHTML = `<div style="display:flex; gap:10px; overflow-x:auto; padding-bottom:10px; width:100%; padding-top:4px;">${noArmorHtml}${armorsHtml}</div>`;
 
+  // Initialiser les viewers 3D pour chaque armure
+  if (typeof skinview3d !== 'undefined') {
+    // Skin Steve par défaut (base neutre sans couleur pour que l'armure soit bien visible)
+    const DEFAULT_SKIN = 'https://crafatar.com/skins/8667ba71b85a4004af54457a9734eed7';
+
+    armors.forEach(armor => {
+      const canvas = document.getElementById(`armor-canvas-${armor.id}`);
+      if (!canvas) return;
+
+      const layer1Src = canvas.dataset.layer1;
+      const layer2Src = canvas.dataset.layer2;
+
+      try {
+        const viewer = new skinview3d.SkinViewer({
+          canvas: canvas,
+          width: 100,
+          height: 130,
+          skin: DEFAULT_SKIN,
+        });
+
+        // Fond transparent
+        viewer.renderer.setClearColor(0x000000, 0);
+
+        // Caméra légèrement reculée pour voir tout le personnage
+        viewer.camera.position.z = 70;
+
+        // Auto-rotation lente
+        viewer.controls.enableZoom = false;
+        viewer.controls.enablePan = false;
+        viewer.controls.autoRotate = true;
+        viewer.controls.autoRotateSpeed = 1.8;
+
+        // Animation idle (respiration légère)
+        viewer.animation = new skinview3d.IdleAnimation();
+        viewer.animation.speed = 0.6;
+
+        // Appliquer les textures d'armure via canvas 2D overlay
+        const applyArmor = () => {
+          const skinCanvas = document.createElement('canvas');
+          skinCanvas.width = 64;
+          skinCanvas.height = 64;
+          const ctx = skinCanvas.getContext('2d');
+
+          // Charger skin de base puis overlayer l'armure
+          const baseSkin = new Image();
+          baseSkin.crossOrigin = 'anonymous';
+          baseSkin.onload = () => {
+            ctx.drawImage(baseSkin, 0, 0);
+
+            const loadAndApply = (src, done) => {
+              if (!src) { done(); return; }
+              const img = new Image();
+              img.crossOrigin = 'anonymous';
+              img.onload = () => {
+                // Créer canvas 64x64 pour la texture armure
+                const ac = document.createElement('canvas');
+                ac.width = 64; ac.height = 64;
+                const ax = ac.getContext('2d');
+                ax.drawImage(img, 0, 0, 64, 64);
+                // Overlay sur le skin
+                ctx.drawImage(ac, 0, 0);
+                done();
+              };
+              img.onerror = done;
+              img.src = src;
+            };
+
+            loadAndApply(layer1Src, () => {
+              loadAndApply(layer2Src, () => {
+                viewer.loadSkin(skinCanvas.toDataURL());
+              });
+            });
+          };
+          baseSkin.onerror = () => {
+            // Si crafatar échoue, appliquer directement les layers sur fond vide
+            ctx.clearRect(0, 0, 64, 64);
+            const loadAndApply = (src, done) => {
+              if (!src) { done(); return; }
+              const img = new Image();
+              img.crossOrigin = 'anonymous';
+              img.onload = () => {
+                const ac = document.createElement('canvas');
+                ac.width = 64; ac.height = 64;
+                const ax = ac.getContext('2d');
+                ax.drawImage(img, 0, 0, 64, 64);
+                ctx.drawImage(ac, 0, 0);
+                done();
+              };
+              img.onerror = done;
+              img.src = src;
+            };
+            loadAndApply(layer1Src, () => {
+              loadAndApply(layer2Src, () => {
+                viewer.loadSkin(skinCanvas.toDataURL());
+              });
+            });
+          };
+          baseSkin.src = DEFAULT_SKIN;
+        };
+
+        applyArmor();
+        canvas._skinViewer = viewer;
+
+      } catch(e) {
+        console.warn('skinview3d error for', armor.id, e);
+        // Fallback : afficher la preview image statique
+        const previewSrc = armor.preview || layer1Src;
+        canvas.insertAdjacentHTML('afterend', `<img src="${previewSrc}" alt="${armor.name}" style="width:100px;height:130px;object-fit:cover;border-radius:8px;image-rendering:pixelated;background:#111;">`);
+        canvas.remove();
+      }
+    });
+  } else {
+    // Fallback si skinview3d non chargé : image statique
+    armors.forEach(armor => {
+      const canvas = document.getElementById(`armor-canvas-${armor.id}`);
+      if (!canvas) return;
+      const previewSrc = armor.preview || (armor.files && armor.files[0] ? armor.files[0].file : '');
+      canvas.insertAdjacentHTML('afterend', `<img src="${previewSrc}" alt="${armor.name}" style="width:100px;height:130px;object-fit:cover;border-radius:8px;image-rendering:pixelated;background:#111;">`);
+      canvas.remove();
+    });
+  }
+
+  // Clicks
   grid.querySelectorAll('.armor-card').forEach(card => {
     card.addEventListener('click', () => {
       if (card.dataset.id === 'none') {
