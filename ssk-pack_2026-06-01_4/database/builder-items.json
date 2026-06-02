@@ -1,0 +1,2497 @@
+{
+  "swords": [
+    {
+      "id": "sword_2",
+      "name": "Épée #2",
+      "preview": "/builder-items/swords/preview_2.png",
+      "file": "/builder-items/swords/sword_2.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_3",
+      "name": "Épée #3",
+      "preview": "/builder-items/swords/preview_3.png",
+      "file": "/builder-items/swords/sword_3.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_4",
+      "name": "Épée #4",
+      "preview": "/builder-items/swords/preview_4.png",
+      "file": "/builder-items/swords/sword_4.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_5",
+      "name": "Épée #5",
+      "preview": "/builder-items/swords/preview_5.png",
+      "file": "/builder-items/swords/sword_5.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_6",
+      "name": "Épée #6",
+      "preview": "/builder-items/swords/preview_6.png",
+      "file": "/builder-items/swords/sword_6.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_7",
+      "name": "Épée #7",
+      "preview": "/builder-items/swords/preview_7.png",
+      "file": "/builder-items/swords/sword_7.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_8",
+      "name": "Épée #8",
+      "preview": "/builder-items/swords/preview_8.png",
+      "file": "/builder-items/swords/sword_8.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_9",
+      "name": "Épée #9",
+      "preview": "/builder-items/swords/preview_9.png",
+      "file": "/builder-items/swords/sword_9.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_10",
+      "name": "Épée #10",
+      "preview": "/builder-items/swords/preview_10.png",
+      "file": "/builder-items/swords/sword_10.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_11",
+      "name": "Épée #11",
+      "preview": "/builder-items/swords/preview_11.png",
+      "file": "/builder-items/swords/sword_11.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_12",
+      "name": "Épée #12",
+      "preview": "/builder-items/swords/preview_12.png",
+      "file": "/builder-items/swords/sword_12.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_13",
+      "name": "Épée #13",
+      "preview": "/builder-items/swords/preview_13.png",
+      "file": "/builder-items/swords/sword_13.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_14",
+      "name": "Épée #14",
+      "preview": "/builder-items/swords/preview_14.png",
+      "file": "/builder-items/swords/sword_14.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_15",
+      "name": "Épée #15",
+      "preview": "/builder-items/swords/preview_15.png",
+      "file": "/builder-items/swords/sword_15.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_16",
+      "name": "Épée #16",
+      "preview": "/builder-items/swords/preview_16.png",
+      "file": "/builder-items/swords/sword_16.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_18",
+      "name": "Épée #18",
+      "preview": "/builder-items/swords/preview_18.png",
+      "file": "/builder-items/swords/sword_18.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_19",
+      "name": "Épée #19",
+      "preview": "/builder-items/swords/preview_19.png",
+      "file": "/builder-items/swords/sword_19.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_20",
+      "name": "Épée #20",
+      "preview": "/builder-items/swords/preview_20.png",
+      "file": "/builder-items/swords/sword_20.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_21",
+      "name": "Épée #21",
+      "preview": "/builder-items/swords/preview_21.png",
+      "file": "/builder-items/swords/sword_21.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_22",
+      "name": "Épée #22",
+      "preview": "/builder-items/swords/preview_22.png",
+      "file": "/builder-items/swords/sword_22.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_23",
+      "name": "Épée #23",
+      "preview": "/builder-items/swords/preview_23.png",
+      "file": "/builder-items/swords/sword_23.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_24",
+      "name": "Épée #24",
+      "preview": "/builder-items/swords/preview_24.png",
+      "file": "/builder-items/swords/sword_24.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_25",
+      "name": "Épée #25",
+      "preview": "/builder-items/swords/preview_25.png",
+      "file": "/builder-items/swords/sword_25.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_26",
+      "name": "Épée #26",
+      "preview": "/builder-items/swords/preview_26.png",
+      "file": "/builder-items/swords/sword_26.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_27",
+      "name": "Épée #27",
+      "preview": "/builder-items/swords/preview_27.png",
+      "file": "/builder-items/swords/sword_27.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_28",
+      "name": "Épée #28",
+      "preview": "/builder-items/swords/preview_28.png",
+      "file": "/builder-items/swords/sword_28.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_29",
+      "name": "Épée #29",
+      "preview": "/builder-items/swords/preview_29.png",
+      "file": "/builder-items/swords/sword_29.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_30",
+      "name": "Épée #30",
+      "preview": "/builder-items/swords/preview_30.png",
+      "file": "/builder-items/swords/sword_30.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_31",
+      "name": "Épée #31",
+      "preview": "/builder-items/swords/preview_31.png",
+      "file": "/builder-items/swords/sword_31.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_32",
+      "name": "Épée #32",
+      "preview": "/builder-items/swords/preview_32.png",
+      "file": "/builder-items/swords/sword_32.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_33",
+      "name": "Épée #33",
+      "preview": "/builder-items/swords/preview_33.png",
+      "file": "/builder-items/swords/sword_33.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_34",
+      "name": "Épée #34",
+      "preview": "/builder-items/swords/preview_34.png",
+      "file": "/builder-items/swords/sword_34.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_35",
+      "name": "Épée #35",
+      "preview": "/builder-items/swords/preview_35.png",
+      "file": "/builder-items/swords/sword_35.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_36",
+      "name": "Épée #36",
+      "preview": "/builder-items/swords/preview_36.png",
+      "file": "/builder-items/swords/sword_36.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_37",
+      "name": "Épée #37",
+      "preview": "/builder-items/swords/preview_37.png",
+      "file": "/builder-items/swords/sword_37.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_38",
+      "name": "Épée #38",
+      "preview": "/builder-items/swords/preview_38.png",
+      "file": "/builder-items/swords/sword_38.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_39",
+      "name": "Épée #39",
+      "preview": "/builder-items/swords/preview_39.png",
+      "file": "/builder-items/swords/sword_39.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_40",
+      "name": "Épée #40",
+      "preview": "/builder-items/swords/preview_40.png",
+      "file": "/builder-items/swords/sword_40.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_42",
+      "name": "Épée #42",
+      "preview": "/builder-items/swords/preview_42.png",
+      "file": "/builder-items/swords/sword_42.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_43",
+      "name": "Épée #43",
+      "preview": "/builder-items/swords/preview_43.png",
+      "file": "/builder-items/swords/sword_43.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_44",
+      "name": "Épée #44",
+      "preview": "/builder-items/swords/preview_44.png",
+      "file": "/builder-items/swords/sword_44.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_45",
+      "name": "Épée #45",
+      "preview": "/builder-items/swords/preview_45.png",
+      "file": "/builder-items/swords/sword_45.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_47",
+      "name": "Épée #47",
+      "preview": "/builder-items/swords/preview_47.png",
+      "file": "/builder-items/swords/sword_47.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_48",
+      "name": "Épée #48",
+      "preview": "/builder-items/swords/preview_48.png",
+      "file": "/builder-items/swords/sword_48.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_49",
+      "name": "Épée #49",
+      "preview": "/builder-items/swords/preview_49.png",
+      "file": "/builder-items/swords/sword_49.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_50",
+      "name": "Épée #50",
+      "preview": "/builder-items/swords/preview_50.png",
+      "file": "/builder-items/swords/sword_50.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_51",
+      "name": "Épée #51",
+      "preview": "/builder-items/swords/preview_51.png",
+      "file": "/builder-items/swords/sword_51.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_52",
+      "name": "Épée #52",
+      "preview": "/builder-items/swords/preview_52.png",
+      "file": "/builder-items/swords/sword_52.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_53",
+      "name": "Épée #53",
+      "preview": "/builder-items/swords/preview_53.png",
+      "file": "/builder-items/swords/sword_53.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_54",
+      "name": "Épée #54",
+      "preview": "/builder-items/swords/preview_54.png",
+      "file": "/builder-items/swords/sword_54.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_55",
+      "name": "Épée #55",
+      "preview": "/builder-items/swords/preview_55.png",
+      "file": "/builder-items/swords/sword_55.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_56",
+      "name": "Épée #56",
+      "preview": "/builder-items/swords/preview_56.png",
+      "file": "/builder-items/swords/sword_56.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_57",
+      "name": "Épée #57",
+      "preview": "/builder-items/swords/preview_57.png",
+      "file": "/builder-items/swords/sword_57.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_58",
+      "name": "Épée #58",
+      "preview": "/builder-items/swords/preview_58.png",
+      "file": "/builder-items/swords/sword_58.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_59",
+      "name": "Épée #59",
+      "preview": "/builder-items/swords/preview_59.png",
+      "file": "/builder-items/swords/sword_59.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_60",
+      "name": "Épée #60",
+      "preview": "/builder-items/swords/preview_60.png",
+      "file": "/builder-items/swords/sword_60.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_61",
+      "name": "Épée #61",
+      "preview": "/builder-items/swords/preview_61.png",
+      "file": "/builder-items/swords/sword_61.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_62",
+      "name": "Épée #62",
+      "preview": "/builder-items/swords/preview_62.png",
+      "file": "/builder-items/swords/sword_62.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_63",
+      "name": "Épée #63",
+      "preview": "/builder-items/swords/preview_63.png",
+      "file": "/builder-items/swords/sword_63.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_64",
+      "name": "Épée #64",
+      "preview": "/builder-items/swords/preview_64.png",
+      "file": "/builder-items/swords/sword_64.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_65",
+      "name": "Épée #65",
+      "preview": "/builder-items/swords/preview_65.png",
+      "file": "/builder-items/swords/sword_65.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_66",
+      "name": "Épée #66",
+      "preview": "/builder-items/swords/preview_66.png",
+      "file": "/builder-items/swords/sword_66.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_68",
+      "name": "Épée #68",
+      "preview": "/builder-items/swords/preview_68.png",
+      "file": "/builder-items/swords/sword_68.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_69",
+      "name": "Épée #69",
+      "preview": "/builder-items/swords/preview_69.png",
+      "file": "/builder-items/swords/sword_69.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_71",
+      "name": "Épée #71",
+      "preview": "/builder-items/swords/preview_71.png",
+      "file": "/builder-items/swords/sword_71.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_72",
+      "name": "Épée #72",
+      "preview": "/builder-items/swords/preview_72.png",
+      "file": "/builder-items/swords/sword_72.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_73",
+      "name": "Épée #73",
+      "preview": "/builder-items/swords/preview_73.png",
+      "file": "/builder-items/swords/sword_73.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_74",
+      "name": "Épée #74",
+      "preview": "/builder-items/swords/preview_74.png",
+      "file": "/builder-items/swords/sword_74.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_75",
+      "name": "Épée #75",
+      "preview": "/builder-items/swords/preview_75.png",
+      "file": "/builder-items/swords/sword_75.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_76",
+      "name": "Épée #76",
+      "preview": "/builder-items/swords/preview_76.png",
+      "file": "/builder-items/swords/sword_76.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_77",
+      "name": "Épée #77",
+      "preview": "/builder-items/swords/preview_77.png",
+      "file": "/builder-items/swords/sword_77.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_78",
+      "name": "Épée #78",
+      "preview": "/builder-items/swords/preview_78.png",
+      "file": "/builder-items/swords/sword_78.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_79",
+      "name": "Épée #79",
+      "preview": "/builder-items/swords/preview_79.png",
+      "file": "/builder-items/swords/sword_79.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_80",
+      "name": "Épée #80",
+      "preview": "/builder-items/swords/preview_80.png",
+      "file": "/builder-items/swords/sword_80.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_81",
+      "name": "Épée #81",
+      "preview": "/builder-items/swords/preview_81.png",
+      "file": "/builder-items/swords/sword_81.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_82",
+      "name": "Épée #82",
+      "preview": "/builder-items/swords/preview_82.png",
+      "file": "/builder-items/swords/sword_82.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_83",
+      "name": "Épée #83",
+      "preview": "/builder-items/swords/preview_83.png",
+      "file": "/builder-items/swords/sword_83.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_84",
+      "name": "Épée #84",
+      "preview": "/builder-items/swords/preview_84.png",
+      "file": "/builder-items/swords/sword_84.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_85",
+      "name": "Épée #85",
+      "preview": "/builder-items/swords/preview_85.png",
+      "file": "/builder-items/swords/sword_85.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_86",
+      "name": "Épée #86",
+      "preview": "/builder-items/swords/preview_86.png",
+      "file": "/builder-items/swords/sword_86.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_87",
+      "name": "Épée #87",
+      "preview": "/builder-items/swords/preview_87.png",
+      "file": "/builder-items/swords/sword_87.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_88",
+      "name": "Épée #88",
+      "preview": "/builder-items/swords/preview_88.png",
+      "file": "/builder-items/swords/sword_88.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_89",
+      "name": "Épée #89",
+      "preview": "/builder-items/swords/preview_89.png",
+      "file": "/builder-items/swords/sword_89.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_90",
+      "name": "Épée #90",
+      "preview": "/builder-items/swords/preview_90.png",
+      "file": "/builder-items/swords/sword_90.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_91",
+      "name": "Épée #91",
+      "preview": "/builder-items/swords/preview_91.png",
+      "file": "/builder-items/swords/sword_91.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_92",
+      "name": "Épée #92",
+      "preview": "/builder-items/swords/preview_92.png",
+      "file": "/builder-items/swords/sword_92.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_93",
+      "name": "Épée #93",
+      "preview": "/builder-items/swords/preview_93.png",
+      "file": "/builder-items/swords/sword_93.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_94",
+      "name": "Épée #94",
+      "preview": "/builder-items/swords/preview_94.png",
+      "file": "/builder-items/swords/sword_94.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_95",
+      "name": "Épée #95",
+      "preview": "/builder-items/swords/preview_95.png",
+      "file": "/builder-items/swords/sword_95.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_96",
+      "name": "Épée #96",
+      "preview": "/builder-items/swords/preview_96.png",
+      "file": "/builder-items/swords/sword_96.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_97",
+      "name": "Épée #97",
+      "preview": "/builder-items/swords/preview_97.png",
+      "file": "/builder-items/swords/sword_97.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_98",
+      "name": "Épée #98",
+      "preview": "/builder-items/swords/preview_98.png",
+      "file": "/builder-items/swords/sword_98.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_99",
+      "name": "Épée #99",
+      "preview": "/builder-items/swords/preview_99.png",
+      "file": "/builder-items/swords/sword_99.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_100",
+      "name": "Épée #100",
+      "preview": "/builder-items/swords/preview_100.png",
+      "file": "/builder-items/swords/sword_100.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_101",
+      "name": "Épée #101",
+      "preview": "/builder-items/swords/preview_101.png",
+      "file": "/builder-items/swords/sword_101.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_102",
+      "name": "Épée #102",
+      "preview": "/builder-items/swords/preview_102.png",
+      "file": "/builder-items/swords/sword_102.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_103",
+      "name": "Épée #103",
+      "preview": "/builder-items/swords/preview_103.png",
+      "file": "/builder-items/swords/sword_103.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_104",
+      "name": "Épée #104",
+      "preview": "/builder-items/swords/preview_104.png",
+      "file": "/builder-items/swords/sword_104.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_105",
+      "name": "Épée #105",
+      "preview": "/builder-items/swords/preview_105.png",
+      "file": "/builder-items/swords/sword_105.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_106",
+      "name": "Épée #106",
+      "preview": "/builder-items/swords/preview_106.png",
+      "file": "/builder-items/swords/sword_106.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_107",
+      "name": "Épée #107",
+      "preview": "/builder-items/swords/preview_107.png",
+      "file": "/builder-items/swords/sword_107.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_108",
+      "name": "Épée #108",
+      "preview": "/builder-items/swords/preview_108.png",
+      "file": "/builder-items/swords/sword_108.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_109",
+      "name": "Épée #109",
+      "preview": "/builder-items/swords/preview_109.png",
+      "file": "/builder-items/swords/sword_109.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_110",
+      "name": "Épée #110",
+      "preview": "/builder-items/swords/preview_110.png",
+      "file": "/builder-items/swords/sword_110.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_111",
+      "name": "Épée #111",
+      "preview": "/builder-items/swords/preview_111.png",
+      "file": "/builder-items/swords/sword_111.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_112",
+      "name": "Épée #112",
+      "preview": "/builder-items/swords/preview_112.png",
+      "file": "/builder-items/swords/sword_112.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_113",
+      "name": "Épée #113",
+      "preview": "/builder-items/swords/preview_113.png",
+      "file": "/builder-items/swords/sword_113.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_114",
+      "name": "Épée #114",
+      "preview": "/builder-items/swords/preview_114.png",
+      "file": "/builder-items/swords/sword_114.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_115",
+      "name": "Épée #115",
+      "preview": "/builder-items/swords/preview_115.png",
+      "file": "/builder-items/swords/sword_115.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_116",
+      "name": "Épée #116",
+      "preview": "/builder-items/swords/preview_116.png",
+      "file": "/builder-items/swords/sword_116.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_117",
+      "name": "Épée #117",
+      "preview": "/builder-items/swords/preview_117.png",
+      "file": "/builder-items/swords/sword_117.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_118",
+      "name": "Épée #118",
+      "preview": "/builder-items/swords/preview_118.png",
+      "file": "/builder-items/swords/sword_118.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_119",
+      "name": "Épée #119",
+      "preview": "/builder-items/swords/preview_119.png",
+      "file": "/builder-items/swords/sword_119.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_120",
+      "name": "Épée #120",
+      "preview": "/builder-items/swords/preview_120.png",
+      "file": "/builder-items/swords/sword_120.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_121",
+      "name": "Épée #121",
+      "preview": "/builder-items/swords/preview_121.png",
+      "file": "/builder-items/swords/sword_121.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_122",
+      "name": "Épée #122",
+      "preview": "/builder-items/swords/preview_122.png",
+      "file": "/builder-items/swords/sword_122.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_123",
+      "name": "Épée #123",
+      "preview": "/builder-items/swords/preview_123.png",
+      "file": "/builder-items/swords/sword_123.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_124",
+      "name": "Épée #124",
+      "preview": "/builder-items/swords/preview_124.png",
+      "file": "/builder-items/swords/sword_124.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_125",
+      "name": "Épée #125",
+      "preview": "/builder-items/swords/preview_125.png",
+      "file": "/builder-items/swords/sword_125.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_126",
+      "name": "Épée #126",
+      "preview": "/builder-items/swords/preview_126.png",
+      "file": "/builder-items/swords/sword_126.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_127",
+      "name": "Épée #127",
+      "preview": "/builder-items/swords/preview_127.png",
+      "file": "/builder-items/swords/sword_127.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_128",
+      "name": "Épée #128",
+      "preview": "/builder-items/swords/preview_128.png",
+      "file": "/builder-items/swords/sword_128.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_129",
+      "name": "Épée #129",
+      "preview": "/builder-items/swords/preview_129.png",
+      "file": "/builder-items/swords/sword_129.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_130",
+      "name": "Épée #130",
+      "preview": "/builder-items/swords/preview_130.png",
+      "file": "/builder-items/swords/sword_130.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_131",
+      "name": "Épée #131",
+      "preview": "/builder-items/swords/preview_131.png",
+      "file": "/builder-items/swords/sword_131.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_132",
+      "name": "Épée #132",
+      "preview": "/builder-items/swords/preview_132.png",
+      "file": "/builder-items/swords/sword_132.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_133",
+      "name": "Épée #133",
+      "preview": "/builder-items/swords/preview_133.png",
+      "file": "/builder-items/swords/sword_133.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_134",
+      "name": "Épée #134",
+      "preview": "/builder-items/swords/preview_134.png",
+      "file": "/builder-items/swords/sword_134.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_135",
+      "name": "Épée #135",
+      "preview": "/builder-items/swords/preview_135.png",
+      "file": "/builder-items/swords/sword_135.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_136",
+      "name": "Épée #136",
+      "preview": "/builder-items/swords/preview_136.png",
+      "file": "/builder-items/swords/sword_136.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_137",
+      "name": "Épée #137",
+      "preview": "/builder-items/swords/preview_137.png",
+      "file": "/builder-items/swords/sword_137.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_138",
+      "name": "Épée #138",
+      "preview": "/builder-items/swords/preview_138.png",
+      "file": "/builder-items/swords/sword_138.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_139",
+      "name": "Épée #139",
+      "preview": "/builder-items/swords/preview_139.png",
+      "file": "/builder-items/swords/sword_139.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_140",
+      "name": "Épée #140",
+      "preview": "/builder-items/swords/preview_140.png",
+      "file": "/builder-items/swords/sword_140.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_141",
+      "name": "Épée #141",
+      "preview": "/builder-items/swords/preview_141.png",
+      "file": "/builder-items/swords/sword_141.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_142",
+      "name": "Épée #142",
+      "preview": "/builder-items/swords/preview_142.png",
+      "file": "/builder-items/swords/sword_142.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_143",
+      "name": "Épée #143",
+      "preview": "/builder-items/swords/preview_143.png",
+      "file": "/builder-items/swords/sword_143.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_144",
+      "name": "Épée #144",
+      "preview": "/builder-items/swords/preview_144.png",
+      "file": "/builder-items/swords/sword_144.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_145",
+      "name": "Épée #145",
+      "preview": "/builder-items/swords/preview_145.png",
+      "file": "/builder-items/swords/sword_145.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_146",
+      "name": "Épée #146",
+      "preview": "/builder-items/swords/preview_146.png",
+      "file": "/builder-items/swords/sword_146.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_147",
+      "name": "Épée #147",
+      "preview": "/builder-items/swords/preview_147.png",
+      "file": "/builder-items/swords/sword_147.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_148",
+      "name": "Épée #148",
+      "preview": "/builder-items/swords/preview_148.png",
+      "file": "/builder-items/swords/sword_148.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_149",
+      "name": "Épée #149",
+      "preview": "/builder-items/swords/preview_149.png",
+      "file": "/builder-items/swords/sword_149.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_150",
+      "name": "Épée #150",
+      "preview": "/builder-items/swords/preview_150.png",
+      "file": "/builder-items/swords/sword_150.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_151",
+      "name": "Épée #151",
+      "preview": "/builder-items/swords/preview_151.png",
+      "file": "/builder-items/swords/sword_151.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_152",
+      "name": "Épée #152",
+      "preview": "/builder-items/swords/preview_152.png",
+      "file": "/builder-items/swords/sword_152.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_153",
+      "name": "Épée #153",
+      "preview": "/builder-items/swords/preview_153.png",
+      "file": "/builder-items/swords/sword_153.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_154",
+      "name": "Épée #154",
+      "preview": "/builder-items/swords/preview_154.png",
+      "file": "/builder-items/swords/sword_154.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_155",
+      "name": "Épée #155",
+      "preview": "/builder-items/swords/preview_155.png",
+      "file": "/builder-items/swords/sword_155.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_156",
+      "name": "Épée #156",
+      "preview": "/builder-items/swords/preview_156.png",
+      "file": "/builder-items/swords/sword_156.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_157",
+      "name": "Épée #157",
+      "preview": "/builder-items/swords/preview_157.png",
+      "file": "/builder-items/swords/sword_157.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_158",
+      "name": "Épée #158",
+      "preview": "/builder-items/swords/preview_158.png",
+      "file": "/builder-items/swords/sword_158.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_159",
+      "name": "Épée #159",
+      "preview": "/builder-items/swords/preview_159.png",
+      "file": "/builder-items/swords/sword_159.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_160",
+      "name": "Épée #160",
+      "preview": "/builder-items/swords/preview_160.png",
+      "file": "/builder-items/swords/sword_160.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_161",
+      "name": "Épée #161",
+      "preview": "/builder-items/swords/preview_161.png",
+      "file": "/builder-items/swords/sword_161.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_162",
+      "name": "Épée #162",
+      "preview": "/builder-items/swords/preview_162.png",
+      "file": "/builder-items/swords/sword_162.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_163",
+      "name": "Épée #163",
+      "preview": "/builder-items/swords/preview_163.png",
+      "file": "/builder-items/swords/sword_163.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_164",
+      "name": "Épée #164",
+      "preview": "/builder-items/swords/preview_164.png",
+      "file": "/builder-items/swords/sword_164.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_165",
+      "name": "Épée #165",
+      "preview": "/builder-items/swords/preview_165.png",
+      "file": "/builder-items/swords/sword_165.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_167",
+      "name": "Épée #167",
+      "preview": "/builder-items/swords/preview_167.png",
+      "file": "/builder-items/swords/sword_167.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_168",
+      "name": "Épée #168",
+      "preview": "/builder-items/swords/preview_168.png",
+      "file": "/builder-items/swords/sword_168.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_169",
+      "name": "Épée #169",
+      "preview": "/builder-items/swords/preview_169.png",
+      "file": "/builder-items/swords/sword_169.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_170",
+      "name": "Épée #170",
+      "preview": "/builder-items/swords/preview_170.png",
+      "file": "/builder-items/swords/sword_170.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_171",
+      "name": "Épée #171",
+      "preview": "/builder-items/swords/preview_171.png",
+      "file": "/builder-items/swords/sword_171.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_173",
+      "name": "Épée #173",
+      "preview": "/builder-items/swords/preview_173.png",
+      "file": "/builder-items/swords/sword_173.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_174",
+      "name": "Épée #174",
+      "preview": "/builder-items/swords/preview_174.png",
+      "file": "/builder-items/swords/sword_174.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_175",
+      "name": "Épée #175",
+      "preview": "/builder-items/swords/preview_175.png",
+      "file": "/builder-items/swords/sword_175.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_176",
+      "name": "Épée #176",
+      "preview": "/builder-items/swords/preview_176.png",
+      "file": "/builder-items/swords/sword_176.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_177",
+      "name": "Épée #177",
+      "preview": "/builder-items/swords/preview_177.png",
+      "file": "/builder-items/swords/sword_177.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_178",
+      "name": "Épée #178",
+      "preview": "/builder-items/swords/preview_178.png",
+      "file": "/builder-items/swords/sword_178.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_179",
+      "name": "Épée #179",
+      "preview": "/builder-items/swords/preview_179.png",
+      "file": "/builder-items/swords/sword_179.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_180",
+      "name": "Épée #180",
+      "preview": "/builder-items/swords/preview_180.png",
+      "file": "/builder-items/swords/sword_180.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_181",
+      "name": "Épée #181",
+      "preview": "/builder-items/swords/preview_181.png",
+      "file": "/builder-items/swords/sword_181.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_182",
+      "name": "Épée #182",
+      "preview": "/builder-items/swords/preview_182.png",
+      "file": "/builder-items/swords/sword_182.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_184",
+      "name": "Épée #184",
+      "preview": "/builder-items/swords/preview_184.png",
+      "file": "/builder-items/swords/sword_184.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_185",
+      "name": "Épée #185",
+      "preview": "/builder-items/swords/preview_185.png",
+      "file": "/builder-items/swords/sword_185.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_186",
+      "name": "Épée #186",
+      "preview": "/builder-items/swords/preview_186.png",
+      "file": "/builder-items/swords/sword_186.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_187",
+      "name": "Épée #187",
+      "preview": "/builder-items/swords/preview_187.png",
+      "file": "/builder-items/swords/sword_187.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_188",
+      "name": "Épée #188",
+      "preview": "/builder-items/swords/preview_188.png",
+      "file": "/builder-items/swords/sword_188.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_189",
+      "name": "Épée #189",
+      "preview": "/builder-items/swords/preview_189.png",
+      "file": "/builder-items/swords/sword_189.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_190",
+      "name": "Épée #190",
+      "preview": "/builder-items/swords/preview_190.png",
+      "file": "/builder-items/swords/sword_190.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_191",
+      "name": "Épée #191",
+      "preview": "/builder-items/swords/preview_191.png",
+      "file": "/builder-items/swords/sword_191.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_192",
+      "name": "Épée #192",
+      "preview": "/builder-items/swords/preview_192.png",
+      "file": "/builder-items/swords/sword_192.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_193",
+      "name": "Épée #193",
+      "preview": "/builder-items/swords/preview_193.png",
+      "file": "/builder-items/swords/sword_193.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_194",
+      "name": "Épée #194",
+      "preview": "/builder-items/swords/preview_194.png",
+      "file": "/builder-items/swords/sword_194.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_195",
+      "name": "Épée #195",
+      "preview": "/builder-items/swords/preview_195.png",
+      "file": "/builder-items/swords/sword_195.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_196",
+      "name": "Épée #196",
+      "preview": "/builder-items/swords/preview_196.png",
+      "file": "/builder-items/swords/sword_196.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_197",
+      "name": "Épée #197",
+      "preview": "/builder-items/swords/preview_197.png",
+      "file": "/builder-items/swords/sword_197.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_198",
+      "name": "Épée #198",
+      "preview": "/builder-items/swords/preview_198.png",
+      "file": "/builder-items/swords/sword_198.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_199",
+      "name": "Épée #199",
+      "preview": "/builder-items/swords/preview_199.png",
+      "file": "/builder-items/swords/sword_199.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    },
+    {
+      "id": "sword_200",
+      "name": "Épée #200",
+      "preview": "/builder-items/swords/preview_200.png",
+      "file": "/builder-items/swords/sword_200.png",
+      "internalPath": "assets/minecraft/textures/items/diamond_sword.png"
+    }
+  ],
+  "bows": [
+    {
+      "id": "bow_1",
+      "name": "Arc #1",
+      "preview": "/builder-items/bows/bow_1_preview.png",
+      "file": "/builder-items/bows/bow_1.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_2",
+      "name": "Arc #2",
+      "preview": "/builder-items/bows/bow_2_preview.png",
+      "file": "/builder-items/bows/bow_2.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_3",
+      "name": "Arc #3",
+      "preview": "/builder-items/bows/bow_3_preview.png",
+      "file": "/builder-items/bows/bow_3.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_4",
+      "name": "Arc #4",
+      "preview": "/builder-items/bows/bow_4_preview.png",
+      "file": "/builder-items/bows/bow_4.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_6",
+      "name": "Arc #6",
+      "preview": "/builder-items/bows/bow_6_preview.png",
+      "file": "/builder-items/bows/bow_6.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_8",
+      "name": "Arc #8",
+      "preview": "/builder-items/bows/bow_8_preview.png",
+      "file": "/builder-items/bows/bow_8.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_9",
+      "name": "Arc #9",
+      "preview": "/builder-items/bows/bow_9_preview.png",
+      "file": "/builder-items/bows/bow_9.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_10",
+      "name": "Arc #10",
+      "preview": "/builder-items/bows/bow_10_preview.png",
+      "file": "/builder-items/bows/bow_10.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_11",
+      "name": "Arc #11",
+      "preview": "/builder-items/bows/bow_11_preview.png",
+      "file": "/builder-items/bows/bow_11.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_12",
+      "name": "Arc #12",
+      "preview": "/builder-items/bows/bow_12_preview.png",
+      "file": "/builder-items/bows/bow_12.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_13",
+      "name": "Arc #13",
+      "preview": "/builder-items/bows/bow_13_preview.png",
+      "file": "/builder-items/bows/bow_13.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_14",
+      "name": "Arc #14",
+      "preview": "/builder-items/bows/bow_14_preview.png",
+      "file": "/builder-items/bows/bow_14.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_16",
+      "name": "Arc #16",
+      "preview": "/builder-items/bows/bow_16_preview.png",
+      "file": "/builder-items/bows/bow_16.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_19",
+      "name": "Arc #19",
+      "preview": "/builder-items/bows/bow_19_preview.png",
+      "file": "/builder-items/bows/bow_19.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_20",
+      "name": "Arc #20",
+      "preview": "/builder-items/bows/bow_20_preview.png",
+      "file": "/builder-items/bows/bow_20.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_21",
+      "name": "Arc #21",
+      "preview": "/builder-items/bows/bow_21_preview.png",
+      "file": "/builder-items/bows/bow_21.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_22",
+      "name": "Arc #22",
+      "preview": "/builder-items/bows/bow_22_preview.png",
+      "file": "/builder-items/bows/bow_22.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_24",
+      "name": "Arc #24",
+      "preview": "/builder-items/bows/bow_24_preview.png",
+      "file": "/builder-items/bows/bow_24.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_25",
+      "name": "Arc #25",
+      "preview": "/builder-items/bows/bow_25_preview.png",
+      "file": "/builder-items/bows/bow_25.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_26",
+      "name": "Arc #26",
+      "preview": "/builder-items/bows/bow_26_preview.png",
+      "file": "/builder-items/bows/bow_26.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_27",
+      "name": "Arc #27",
+      "preview": "/builder-items/bows/bow_27_preview.png",
+      "file": "/builder-items/bows/bow_27.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_28",
+      "name": "Arc #28",
+      "preview": "/builder-items/bows/bow_28_preview.png",
+      "file": "/builder-items/bows/bow_28.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_29",
+      "name": "Arc #29",
+      "preview": "/builder-items/bows/bow_29_preview.png",
+      "file": "/builder-items/bows/bow_29.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_31",
+      "name": "Arc #31",
+      "preview": "/builder-items/bows/bow_31_preview.png",
+      "file": "/builder-items/bows/bow_31.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_32",
+      "name": "Arc #32",
+      "preview": "/builder-items/bows/bow_32_preview.png",
+      "file": "/builder-items/bows/bow_32.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_33",
+      "name": "Arc #33",
+      "preview": "/builder-items/bows/bow_33_preview.png",
+      "file": "/builder-items/bows/bow_33.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_35",
+      "name": "Arc #35",
+      "preview": "/builder-items/bows/bow_35_preview.png",
+      "file": "/builder-items/bows/bow_35.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_36",
+      "name": "Arc #36",
+      "preview": "/builder-items/bows/bow_36_preview.png",
+      "file": "/builder-items/bows/bow_36.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_37",
+      "name": "Arc #37",
+      "preview": "/builder-items/bows/bow_37_preview.png",
+      "file": "/builder-items/bows/bow_37.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_38",
+      "name": "Arc #38",
+      "preview": "/builder-items/bows/bow_38_preview.png",
+      "file": "/builder-items/bows/bow_38.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_39",
+      "name": "Arc #39",
+      "preview": "/builder-items/bows/bow_39_preview.png",
+      "file": "/builder-items/bows/bow_39.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_40",
+      "name": "Arc #40",
+      "preview": "/builder-items/bows/bow_40_preview.png",
+      "file": "/builder-items/bows/bow_40.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_41",
+      "name": "Arc #41",
+      "preview": "/builder-items/bows/bow_41_preview.png",
+      "file": "/builder-items/bows/bow_41.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_42",
+      "name": "Arc #42",
+      "preview": "/builder-items/bows/bow_42_preview.png",
+      "file": "/builder-items/bows/bow_42.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_43",
+      "name": "Arc #43",
+      "preview": "/builder-items/bows/bow_43_preview.png",
+      "file": "/builder-items/bows/bow_43.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_44",
+      "name": "Arc #44",
+      "preview": "/builder-items/bows/bow_44_preview.png",
+      "file": "/builder-items/bows/bow_44.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_45",
+      "name": "Arc #45",
+      "preview": "/builder-items/bows/bow_45_preview.png",
+      "file": "/builder-items/bows/bow_45.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_47",
+      "name": "Arc #47",
+      "preview": "/builder-items/bows/bow_47_preview.png",
+      "file": "/builder-items/bows/bow_47.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_48",
+      "name": "Arc #48",
+      "preview": "/builder-items/bows/bow_48_preview.png",
+      "file": "/builder-items/bows/bow_48.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_50",
+      "name": "Arc #50",
+      "preview": "/builder-items/bows/bow_50_preview.png",
+      "file": "/builder-items/bows/bow_50.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_51",
+      "name": "Arc #51",
+      "preview": "/builder-items/bows/bow_51_preview.png",
+      "file": "/builder-items/bows/bow_51.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_52",
+      "name": "Arc #52",
+      "preview": "/builder-items/bows/bow_52_preview.png",
+      "file": "/builder-items/bows/bow_52.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_53",
+      "name": "Arc #53",
+      "preview": "/builder-items/bows/bow_53_preview.png",
+      "file": "/builder-items/bows/bow_53.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_54",
+      "name": "Arc #54",
+      "preview": "/builder-items/bows/bow_54_preview.png",
+      "file": "/builder-items/bows/bow_54.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_55",
+      "name": "Arc #55",
+      "preview": "/builder-items/bows/bow_55_preview.png",
+      "file": "/builder-items/bows/bow_55.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_56",
+      "name": "Arc #56",
+      "preview": "/builder-items/bows/bow_56_preview.png",
+      "file": "/builder-items/bows/bow_56.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_57",
+      "name": "Arc #57",
+      "preview": "/builder-items/bows/bow_57_preview.png",
+      "file": "/builder-items/bows/bow_57.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_58",
+      "name": "Arc #58",
+      "preview": "/builder-items/bows/bow_58_preview.png",
+      "file": "/builder-items/bows/bow_58.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_60",
+      "name": "Arc #60",
+      "preview": "/builder-items/bows/bow_60_preview.png",
+      "file": "/builder-items/bows/bow_60.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_61",
+      "name": "Arc #61",
+      "preview": "/builder-items/bows/bow_61_preview.png",
+      "file": "/builder-items/bows/bow_61.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_62",
+      "name": "Arc #62",
+      "preview": "/builder-items/bows/bow_62_preview.png",
+      "file": "/builder-items/bows/bow_62.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_63",
+      "name": "Arc #63",
+      "preview": "/builder-items/bows/bow_63_preview.png",
+      "file": "/builder-items/bows/bow_63.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_64",
+      "name": "Arc #64",
+      "preview": "/builder-items/bows/bow_64_preview.png",
+      "file": "/builder-items/bows/bow_64.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_65",
+      "name": "Arc #65",
+      "preview": "/builder-items/bows/bow_65_preview.png",
+      "file": "/builder-items/bows/bow_65.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_66",
+      "name": "Arc #66",
+      "preview": "/builder-items/bows/bow_66_preview.png",
+      "file": "/builder-items/bows/bow_66.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_67",
+      "name": "Arc #67",
+      "preview": "/builder-items/bows/bow_67_preview.png",
+      "file": "/builder-items/bows/bow_67.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_68",
+      "name": "Arc #68",
+      "preview": "/builder-items/bows/bow_68_preview.png",
+      "file": "/builder-items/bows/bow_68.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_70",
+      "name": "Arc #70",
+      "preview": "/builder-items/bows/bow_70_preview.png",
+      "file": "/builder-items/bows/bow_70.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_71",
+      "name": "Arc #71",
+      "preview": "/builder-items/bows/bow_71_preview.png",
+      "file": "/builder-items/bows/bow_71.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_72",
+      "name": "Arc #72",
+      "preview": "/builder-items/bows/bow_72_preview.png",
+      "file": "/builder-items/bows/bow_72.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_73",
+      "name": "Arc #73",
+      "preview": "/builder-items/bows/bow_73_preview.png",
+      "file": "/builder-items/bows/bow_73.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_74",
+      "name": "Arc #74",
+      "preview": "/builder-items/bows/bow_74_preview.png",
+      "file": "/builder-items/bows/bow_74.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_75",
+      "name": "Arc #75",
+      "preview": "/builder-items/bows/bow_75_preview.png",
+      "file": "/builder-items/bows/bow_75.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_76",
+      "name": "Arc #76",
+      "preview": "/builder-items/bows/bow_76_preview.png",
+      "file": "/builder-items/bows/bow_76.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_77",
+      "name": "Arc #77",
+      "preview": "/builder-items/bows/bow_77_preview.png",
+      "file": "/builder-items/bows/bow_77.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_78",
+      "name": "Arc #78",
+      "preview": "/builder-items/bows/bow_78_preview.png",
+      "file": "/builder-items/bows/bow_78.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_79",
+      "name": "Arc #79",
+      "preview": "/builder-items/bows/bow_79_preview.png",
+      "file": "/builder-items/bows/bow_79.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_80",
+      "name": "Arc #80",
+      "preview": "/builder-items/bows/bow_80_preview.png",
+      "file": "/builder-items/bows/bow_80.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_81",
+      "name": "Arc #81",
+      "preview": "/builder-items/bows/bow_81_preview.png",
+      "file": "/builder-items/bows/bow_81.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_82",
+      "name": "Arc #82",
+      "preview": "/builder-items/bows/bow_82_preview.png",
+      "file": "/builder-items/bows/bow_82.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_83",
+      "name": "Arc #83",
+      "preview": "/builder-items/bows/bow_83_preview.png",
+      "file": "/builder-items/bows/bow_83.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_84",
+      "name": "Arc #84",
+      "preview": "/builder-items/bows/bow_84_preview.png",
+      "file": "/builder-items/bows/bow_84.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_85",
+      "name": "Arc #85",
+      "preview": "/builder-items/bows/bow_85_preview.png",
+      "file": "/builder-items/bows/bow_85.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_86",
+      "name": "Arc #86",
+      "preview": "/builder-items/bows/bow_86_preview.png",
+      "file": "/builder-items/bows/bow_86.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    },
+    {
+      "id": "bow_87",
+      "name": "Arc #87",
+      "preview": "/builder-items/bows/bow_87_preview.png",
+      "file": "/builder-items/bows/bow_87.png",
+      "internalPath": "assets/minecraft/textures/items/bow_standby.png"
+    }
+  ],
+  "armors": [
+    {
+      "id": "armor_1",
+      "name": "Armure #1",
+      "preview": "/builder-items/armors/armor_1_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_1_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_1_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_2",
+      "name": "Armure #2",
+      "preview": "/builder-items/armors/armor_2_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_2_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_2_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_3",
+      "name": "Armure #3",
+      "preview": "/builder-items/armors/armor_3_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_3_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_3_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_4",
+      "name": "Armure #4",
+      "preview": "/builder-items/armors/armor_4_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_4_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_4_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_5",
+      "name": "Armure #5",
+      "preview": "/builder-items/armors/armor_5_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_5_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_5_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_6",
+      "name": "Armure #6",
+      "preview": "/builder-items/armors/armor_6_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_6_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_6_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_7",
+      "name": "Armure #7",
+      "preview": "/builder-items/armors/armor_7_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_7_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_7_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_8",
+      "name": "Armure #8",
+      "preview": "/builder-items/armors/armor_8_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_8_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_8_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_9",
+      "name": "Armure #9",
+      "preview": "/builder-items/armors/armor_9_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_9_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_9_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_10",
+      "name": "Armure #10",
+      "preview": "/builder-items/armors/armor_10_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_10_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_10_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_11",
+      "name": "Armure #11",
+      "preview": "/builder-items/armors/armor_11_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_11_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_11_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_12",
+      "name": "Armure #12",
+      "preview": "/builder-items/armors/armor_12_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_12_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_12_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_13",
+      "name": "Armure #13",
+      "preview": "/builder-items/armors/armor_13_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_13_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_13_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_14",
+      "name": "Armure #14",
+      "preview": "/builder-items/armors/armor_14_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_14_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_14_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_15",
+      "name": "Armure #15",
+      "preview": "/builder-items/armors/armor_15_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_15_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_15_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_16",
+      "name": "Armure #16",
+      "preview": "/builder-items/armors/armor_16_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_16_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_16_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_17",
+      "name": "Armure #17",
+      "preview": "/builder-items/armors/armor_17_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_17_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_17_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_18",
+      "name": "Armure #18",
+      "preview": "/builder-items/armors/armor_18_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_18_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_18_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_19",
+      "name": "Armure #19",
+      "preview": "/builder-items/armors/armor_19_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_19_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_19_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_20",
+      "name": "Armure #20",
+      "preview": "/builder-items/armors/armor_20_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_20_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_20_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_21",
+      "name": "Armure #21",
+      "preview": "/builder-items/armors/armor_21_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_21_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_21_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_22",
+      "name": "Armure #22",
+      "preview": "/builder-items/armors/armor_22_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_22_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_22_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_23",
+      "name": "Armure #23",
+      "preview": "/builder-items/armors/armor_23_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_23_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_23_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_24",
+      "name": "Armure #24",
+      "preview": "/builder-items/armors/armor_24_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_24_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_24_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_25",
+      "name": "Armure #25",
+      "preview": "/builder-items/armors/armor_25_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_25_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_25_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_26",
+      "name": "Armure #26",
+      "preview": "/builder-items/armors/armor_26_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_26_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_26_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_27",
+      "name": "Armure #27",
+      "preview": "/builder-items/armors/armor_27_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_27_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_27_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_28",
+      "name": "Armure #28",
+      "preview": "/builder-items/armors/armor_28_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_28_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_28_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_29",
+      "name": "Armure #29",
+      "preview": "/builder-items/armors/armor_29_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_29_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_29_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_30",
+      "name": "Armure #30",
+      "preview": "/builder-items/armors/armor_30_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_30_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_30_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_31",
+      "name": "Armure #31",
+      "preview": "/builder-items/armors/armor_31_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_31_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_31_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_32",
+      "name": "Armure #32",
+      "preview": "/builder-items/armors/armor_32_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_32_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_32_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_33",
+      "name": "Armure #33",
+      "preview": "/builder-items/armors/armor_33_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_33_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_33_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_34",
+      "name": "Armure #34",
+      "preview": "/builder-items/armors/armor_34_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_34_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_34_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_35",
+      "name": "Armure #35",
+      "preview": "/builder-items/armors/armor_35_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_35_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_35_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_36",
+      "name": "Armure #36",
+      "preview": "/builder-items/armors/armor_36_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_36_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_36_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    },
+    {
+      "id": "armor_37",
+      "name": "Armure #37",
+      "preview": "/builder-items/armors/armor_37_preview.png",
+      "files": [
+        {
+          "file": "/builder-items/armors/armor_37_layer1.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_1.png"
+        },
+        {
+          "file": "/builder-items/armors/armor_37_layer2.png",
+          "path": "assets/minecraft/textures/models/armor/diamond_layer_2.png"
+        }
+      ]
+    }
+  ],
+  "fishingRods": [
+    {
+      "id": "rod_1",
+      "name": "Canne #1",
+      "preview": "/builder-items/fishingRods/rod_1_preview.png",
+      "file": "/builder-items/fishingRods/rod_1.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_2",
+      "name": "Canne #2",
+      "preview": "/builder-items/fishingRods/rod_2_preview.png",
+      "file": "/builder-items/fishingRods/rod_2.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_3",
+      "name": "Canne #3",
+      "preview": "/builder-items/fishingRods/rod_3_preview.png",
+      "file": "/builder-items/fishingRods/rod_3.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_4",
+      "name": "Canne #4",
+      "preview": "/builder-items/fishingRods/rod_4_preview.png",
+      "file": "/builder-items/fishingRods/rod_4.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_5",
+      "name": "Canne #5",
+      "preview": "/builder-items/fishingRods/rod_5_preview.png",
+      "file": "/builder-items/fishingRods/rod_5.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_6",
+      "name": "Canne #6",
+      "preview": "/builder-items/fishingRods/rod_6_preview.png",
+      "file": "/builder-items/fishingRods/rod_6.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_7",
+      "name": "Canne #7",
+      "preview": "/builder-items/fishingRods/rod_7_preview.png",
+      "file": "/builder-items/fishingRods/rod_7.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_8",
+      "name": "Canne #8",
+      "preview": "/builder-items/fishingRods/rod_8_preview.png",
+      "file": "/builder-items/fishingRods/rod_8.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_9",
+      "name": "Canne #9",
+      "preview": "/builder-items/fishingRods/rod_9_preview.png",
+      "file": "/builder-items/fishingRods/rod_9.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    },
+    {
+      "id": "rod_10",
+      "name": "Canne #10",
+      "preview": "/builder-items/fishingRods/rod_10_preview.png",
+      "file": "/builder-items/fishingRods/rod_10.png",
+      "internalPath": "assets/minecraft/textures/items/fishing_rod_uncast.png"
+    }
+  ]
+}

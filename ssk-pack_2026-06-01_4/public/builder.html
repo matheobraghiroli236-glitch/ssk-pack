@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSK PACK | Builder Pack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/builder.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Header -->
+    <header class="header">
+      <a href="/" class="logo-container" id="logoLink">
+        <div class="logo-icon">S</div>
+        <div class="logo-text">SSK <span>PACK</span></div>
+      </a>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Accueil</a>
+        <a href="/builder.html" class="nav-link active">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Builder Pack
+        </a>
+        <a href="/admin.html" class="btn btn-secondary" style="padding:8px 16px;font-size:0.8rem;height:38px;display:inline-flex;align-items:center;gap:6px;">
+          <i class="fa-solid fa-lock"></i> Admin
+        </a>
+      </nav>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span>BUILDER PACK</span>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- Hero Builder -->
+      <section class="builder-hero">
+        <div class="builder-hero-tag">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          <span>CRÉATEUR DE PACK PERSONNALISÉ</span>
+        </div>
+        <h1 class="builder-hero-title">Build ton <span>Pack</span></h1>
+        <p class="builder-hero-sub">
+          Choisis chaque élément de ton pack — épée, arc, armure, blocs, pioche, pomme d'or, canne à pêche, particules —
+          et génère un <strong>.zip</strong> prêt à glisser dans Minecraft.
+        </p>
+      </section>
+
+      <!-- Stepper -->
+      <div class="builder-stepper" id="stepperBar">
+        <div class="stepper-step active" data-step="swords">
+          <div class="step-icon"><i class="fa-solid fa-sword"></i></div>
+          <span>Épée</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="bows">
+          <div class="step-icon"><i class="fa-solid fa-bow-arrow"></i></div>
+          <span>Arc</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="armors">
+          <div class="step-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span>Armure</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="blocks">
+          <div class="step-icon"><i class="fa-solid fa-cube"></i></div>
+          <span>Blocs</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="pickaxes">
+          <div class="step-icon"><i class="fa-solid fa-hammer"></i></div>
+          <span>Pioche</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="goldenApples">
+          <div class="step-icon"><i class="fa-solid fa-apple-whole"></i></div>
+          <span>Pomme d'or</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="fishingRods">
+          <div class="step-icon"><i class="fa-solid fa-fish"></i></div>
+          <span>Canne</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="particles">
+          <div class="step-icon"><i class="fa-solid fa-sparkles"></i></div>
+          <span>Particules</span>
+        </div>
+        <div class="stepper-divider"></div>
+        <div class="stepper-step" data-step="export">
+          <div class="step-icon"><i class="fa-solid fa-download"></i></div>
+          <span>Exporter</span>
+        </div>
+      </div>
+
+      <!-- Builder Content -->
+      <section class="builder-content" id="builderContent">
+
+        <!-- STEP: SWORDS -->
+        <div class="builder-step active" id="step-swords">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-sword step-icon-big"></i>
+              <div>
+                <h2>Choisis ton épée</h2>
+                <p class="step-subtitle">Sélectionne 1 épée parmi <span id="sword-count">...</span> disponibles</p>
+              </div>
+            </div>
+            <div class="step-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="swordSearch" placeholder="Rechercher #numéro...">
+            </div>
+          </div>
+
+          <!-- Color filter for swords -->
+          <div class="color-filter-bar" id="swordColorFilter">
+            <span class="filter-label-small">FILTRE COULEUR</span>
+            <button class="color-dot active" data-color="all" style="background: conic-gradient(red,orange,yellow,green,blue,purple,red)" title="Tout"></button>
+            <button class="color-dot" data-color="white" style="background:#e0e0e0" title="Blanc/Gris"></button>
+            <button class="color-dot" data-color="red" style="background:#ff2a4b" title="Rouge"></button>
+            <button class="color-dot" data-color="blue" style="background:#4a9eff" title="Bleu"></button>
+            <button class="color-dot" data-color="green" style="background:#00c853" title="Vert"></button>
+            <button class="color-dot" data-color="purple" style="background:#a855f7" title="Violet"></button>
+            <button class="color-dot" data-color="yellow" style="background:#ffd700" title="Jaune/Or"></button>
+            <button class="color-dot" data-color="black" style="background:#1a1a2e;border:1px solid #333" title="Noir"></button>
+          </div>
+
+          <div class="items-grid" id="swordsGrid">
+            <div class="items-loading"><i class="fa-solid fa-circle-notch fa-spin"></i> Chargement des épées...</div>
+          </div>
+        </div>
+
+        <!-- STEP: BOWS -->
+        <div class="builder-step" id="step-bows">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-bow-arrow step-icon-big"></i>
+              <div>
+                <h2>Choisis ton arc</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="bowsGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-bow-arrow"></i>
+              <p>Arcs disponibles prochainement</p>
+              <span>Ajoute tes arcs via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: ARMORS -->
+        <div class="builder-step" id="step-armors">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-shield-halved step-icon-big"></i>
+              <div>
+                <h2>Choisis ton armure</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="armorsGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-shield-halved"></i>
+              <p>Armures disponibles prochainement</p>
+              <span>Ajoute tes armures via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: BLOCKS -->
+        <div class="builder-step" id="step-blocks">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-cube step-icon-big"></i>
+              <div>
+                <h2>Choisis tes blocs</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="blocksGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-cube"></i>
+              <p>Blocs disponibles prochainement</p>
+              <span>Ajoute tes blocs via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: PICKAXES -->
+        <div class="builder-step" id="step-pickaxes">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-hammer step-icon-big"></i>
+              <div>
+                <h2>Choisis ta pioche</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="pickaxesGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-hammer"></i>
+              <p>Pioches disponibles prochainement</p>
+              <span>Ajoute tes pioches via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: GOLDEN APPLES -->
+        <div class="builder-step" id="step-goldenApples">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-apple-whole step-icon-big"></i>
+              <div>
+                <h2>Choisis ta pomme d'or</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="goldenApplesGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-apple-whole"></i>
+              <p>Pommes d'or disponibles prochainement</p>
+              <span>Ajoute tes pommes d'or via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: FISHING RODS -->
+        <div class="builder-step" id="step-fishingRods">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-fish step-icon-big"></i>
+              <div>
+                <h2>Choisis ta canne à pêche</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="fishingRodsGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-fish"></i>
+              <p>Cannes à pêche disponibles prochainement</p>
+              <span>Ajoute tes cannes à pêche via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: PARTICLES -->
+        <div class="builder-step" id="step-particles">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-sparkles step-icon-big"></i>
+              <div>
+                <h2>Choisis tes particules</h2>
+                <p class="step-subtitle">Optionnel — passe si tu n'en veux pas</p>
+              </div>
+            </div>
+          </div>
+          <div class="items-grid empty-category" id="particlesGrid">
+            <div class="coming-soon-card">
+              <i class="fa-solid fa-sparkles"></i>
+              <p>Particules disponibles prochainement</p>
+              <span>Ajoute tes particules via le panel Admin → Builder Items</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP: EXPORT -->
+        <div class="builder-step" id="step-export">
+          <div class="step-header">
+            <div class="step-title-group">
+              <i class="fa-solid fa-download step-icon-big"></i>
+              <div>
+                <h2>Ton pack est prêt !</h2>
+                <p class="step-subtitle">Vérifie ta sélection et génère ton .zip Minecraft</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="export-layout">
+            <!-- Récap -->
+            <div class="export-recap">
+              <h3><i class="fa-solid fa-list-check"></i> Récapitulatif</h3>
+              <div class="recap-grid" id="recapGrid">
+                <!-- Rempli par JS -->
+              </div>
+            </div>
+
+            <!-- Config export -->
+            <div class="export-config">
+              <h3><i class="fa-solid fa-gear"></i> Configuration</h3>
+
+              <div class="config-field">
+                <label>Nom du pack</label>
+                <input type="text" id="packName" placeholder="Mon Pack SSK" maxlength="40">
+              </div>
+
+              <div class="config-field">
+                <label>Description</label>
+                <input type="text" id="packDesc" placeholder="Pack PvP personnalisé" maxlength="80">
+              </div>
+
+              <div class="config-field">
+                <label>Version Minecraft</label>
+                <select id="packVersion">
+                  <option value="9">1.8.9 / 1.12.x (pack_format 1)</option>
+                  <option value="13" selected>1.13 – 1.14.x (pack_format 4)</option>
+                  <option value="15">1.15 – 1.16.x (pack_format 5)</option>
+                  <option value="17">1.17 – 1.18.x (pack_format 7)</option>
+                  <option value="19">1.19 – 1.20.x (pack_format 12)</option>
+                  <option value="21">1.21+ (pack_format 34)</option>
+                </select>
+              </div>
+
+              <div class="config-field">
+                <label>Icône pack.png</label>
+                <div class="icon-selector" id="exportIconGrid">
+                  <!-- Rempli par JS -->
+                </div>
+                <p class="icon-hint" id="exportIconHint">Aucune icône — pack.png par défaut (S rouge)</p>
+              </div>
+
+              <button class="btn btn-primary btn-build" id="buildBtn">
+                <i class="fa-solid fa-file-zipper"></i>
+                Générer mon pack .zip
+              </button>
+
+              <div class="build-progress" id="buildProgress" style="display:none">
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill" id="progressFill"></div>
+                </div>
+                <p id="progressLabel">Préparation...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Navigation boutons -->
+      <div class="builder-nav" id="builderNav">
+        <button class="btn btn-secondary" id="prevBtn" disabled>
+          <i class="fa-solid fa-arrow-left"></i> Précédent
+        </button>
+        <div class="nav-skip-wrap">
+          <button class="btn btn-skip" id="skipBtn">
+            Passer <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+        <button class="btn btn-primary" id="nextBtn">
+          Suivant <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 <strong>SSK PACK</strong>. Builder Pack — Génère ton pack de A à Z.</p>
+    </footer>
+  </div>
+
+  <!-- JSZip CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="/js/builder.js"></script>
+</body>
+</html>
