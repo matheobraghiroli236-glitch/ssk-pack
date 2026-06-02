@@ -175,6 +175,162 @@ function renderCategory(catId) {
 }
 
 
+// ── ARMOR 3D SKIN PREVIEW ─────────────────────────────────────────────────────
+let _armorAnimId = null;
+let _armorRenderer = null;
+let _armorGroup = null;
+
+function disposeArmorScene() {
+  if (_armorAnimId) { cancelAnimationFrame(_armorAnimId); _armorAnimId = null; }
+  if (_armorRenderer) { _armorRenderer.dispose(); _armorRenderer = null; }
+  _armorGroup = null;
+}
+
+function launchArmorPreview(canvasEl, layer1Url, layer2Url) {
+  if (typeof THREE === 'undefined') return;
+  disposeArmorScene();
+
+  const W = canvasEl.parentElement ? canvasEl.parentElement.offsetWidth : 160;
+  const H = 260;
+  canvasEl.width = W; canvasEl.height = H;
+  canvasEl.style.width = W + 'px'; canvasEl.style.height = H + 'px';
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvasEl, alpha: true, antialias: false });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  _armorRenderer = renderer;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
+  camera.position.set(0, 0.5, 9);
+  camera.lookAt(0, 0.5, 0);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 1.0));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.5);
+  sun.position.set(3, 6, 4);
+  scene.add(sun);
+
+  const loader = new THREE.TextureLoader();
+  loader.crossOrigin = 'anonymous';
+
+  // Steve skin (classic 64x64 — public domain)
+  const STEVE = 'https://i.imgur.com/g0gQa05.png';
+
+  function px(v) { return v * 0.125; }
+
+  // Build a box mesh with Minecraft UV mapping
+  // u,v = top-left pixel of the unfolded skin region; w,h,d = pixel dimensions
+  // totalW/totalH = skin texture size (64 or 128)
+  function mcBox(w, h, d, u, v, tex, totalW = 64, totalH = 64, mirror = false) {
+    const geo = new THREE.BoxGeometry(px(w), px(h), px(d));
+    const uv = geo.attributes.uv;
+    const tw = totalW, th = totalH;
+    const f = (x, y) => [x / tw, 1 - y / th];
+
+    // THREE face order: +x right, -x left, +y top, -y bottom, +z front, -z back
+    const faceUVs = [
+      // right (+x): u,v+d  to  u+d,v+d+h
+      [f(u,      v+d),   f(u+d,    v+d),   f(u,      v+d+h), f(u+d,    v+d+h)],
+      // left (-x): u+d+w,v+d  to  u+2d+w,v+d+h
+      [f(u+d+w,  v+d),   f(u+2*d+w,v+d),   f(u+d+w,  v+d+h), f(u+2*d+w,v+d+h)],
+      // top (+y): u+d,v  to  u+d+w,v+d
+      [f(u+d,    v),     f(u+d+w,  v),     f(u+d,    v+d),   f(u+d+w,  v+d)],
+      // bottom (-y): u+d+w,v  to  u+d+2w,v+d
+      [f(u+d+w,  v),     f(u+2*d+2*w, v),  f(u+d+w,  v+d),   f(u+2*d+2*w,v+d)],
+      // front (+z): u+d,v+d  to  u+d+w,v+d+h
+      [f(u+d,    v+d),   f(u+d+w,  v+d),   f(u+d,    v+d+h), f(u+d+w,  v+d+h)],
+      // back (-z): u+2d+w,v+d  to  u+2d+2w,v+d+h
+      [f(u+2*d+w,v+d),   f(u+2*d+2*w,v+d), f(u+2*d+w,v+d+h), f(u+2*d+2*w,v+d+h)],
+    ];
+
+    for (let fi = 0; fi < 6; fi++) {
+      let [tl, tr, bl, br] = faceUVs[fi];
+      if (mirror) { [tl, tr] = [tr, tl]; [bl, br] = [br, bl]; }
+      const b = fi * 4;
+      uv.setXY(b+0, tl[0], tl[1]);
+      uv.setXY(b+1, tr[0], tr[1]);
+      uv.setXY(b+2, bl[0], bl[1]);
+      uv.setXY(b+3, br[0], br[1]);
+    }
+    uv.needsUpdate = true;
+
+    const mat = new THREE.MeshLambertMaterial({ map: tex, transparent: true, alphaTest: 0.05 });
+    return new THREE.Mesh(geo, mat);
+  }
+
+  function buildModel(skinTex, a1Tex, a2Tex) {
+    const group = new THREE.Group();
+    _armorGroup = group;
+
+    // ── Skin body ──
+    const head = mcBox(8, 8, 8, 0, 0, skinTex); head.position.set(0, px(28), 0);
+    const body = mcBox(8, 12, 4, 16, 16, skinTex); body.position.set(0, px(12), 0);
+    const rArm = mcBox(4, 12, 4, 40, 16, skinTex); rArm.position.set(px(-6), px(12), 0);
+    const lArm = mcBox(4, 12, 4, 32, 48, skinTex, 64, 64, true); lArm.position.set(px(6), px(12), 0);
+    const rLeg = mcBox(4, 12, 4, 0, 16, skinTex); rLeg.position.set(px(-2), px(-4), 0);
+    const lLeg = mcBox(4, 12, 4, 16, 48, skinTex, 64, 64, true); lLeg.position.set(px(2), px(-4), 0);
+    [head, body, rArm, lArm, rLeg, lLeg].forEach(m => group.add(m));
+
+    // ── Armor Layer 1 (helmet, chestplate, sleeves, leggings, boots) ──
+    if (a1Tex) {
+      // Helmet 
+      const hlm = mcBox(9, 9, 9, 0, 0, a1Tex, 64, 32); hlm.position.set(0, px(28), 0);
+      // Chestplate
+      const cp  = mcBox(9, 13, 5, 16, 16, a1Tex, 64, 32); cp.position.set(0, px(12), 0);
+      // Right sleeve
+      const rs  = mcBox(5, 13, 5, 40, 16, a1Tex, 64, 32); rs.position.set(px(-6), px(12), 0);
+      // Left sleeve
+      const ls  = mcBox(5, 13, 5, 40, 16, a1Tex, 64, 32); ls.position.set(px(6), px(12), 0);
+      // Leggings right
+      const lr  = mcBox(5, 13, 5, 0, 16, a1Tex, 64, 32); lr.position.set(px(-2), px(-4), 0);
+      // Leggings left
+      const ll  = mcBox(5, 13, 5, 0, 16, a1Tex, 64, 32); ll.position.set(px(2), px(-4), 0);
+      [hlm, cp, rs, ls, lr, ll].forEach(m => group.add(m));
+    }
+
+    // ── Armor Layer 2 (leggings overlay) ──
+    if (a2Tex) {
+      // Legging right overlay
+      const lgr = mcBox(5, 13, 5, 0, 16, a2Tex, 64, 32); lgr.position.set(px(-2), px(-4), 0);
+      const lgl = mcBox(5, 13, 5, 0, 16, a2Tex, 64, 32); lgl.position.set(px(2), px(-4), 0);
+      // Boot right/left overlay
+      const btr = mcBox(5, 7, 5, 0, 0, a2Tex, 64, 32); btr.position.set(px(-2), px(-10), 0);
+      const btl = mcBox(5, 7, 5, 0, 0, a2Tex, 64, 32); btl.position.set(px(2), px(-10), 0);
+      [lgr, lgl, btr, btl].forEach(m => group.add(m));
+    }
+
+    group.rotation.y = 0.3;
+    scene.add(group);
+  }
+
+  function animate() {
+    _armorAnimId = requestAnimationFrame(animate);
+    if (_armorGroup) _armorGroup.rotation.y += 0.014;
+    renderer.render(scene, camera);
+  }
+
+  // Load textures in parallel
+  let skinTex = null, a1Tex = null, a2Tex = null;
+  let loaded = 0;
+  const needed = 1 + (layer1Url ? 1 : 0) + (layer2Url ? 1 : 0);
+
+  function onLoad() {
+    loaded++;
+    if (loaded >= needed) {
+      buildModel(skinTex, a1Tex, a2Tex);
+      animate();
+    }
+  }
+
+  skinTex = loader.load(STEVE, () => { skinTex.magFilter = THREE.NearestFilter; skinTex.minFilter = THREE.NearestFilter; onLoad(); });
+  if (layer1Url) {
+    a1Tex = loader.load(layer1Url, () => { a1Tex.magFilter = THREE.NearestFilter; a1Tex.minFilter = THREE.NearestFilter; onLoad(); }, undefined, () => { onLoad(); });
+  }
+  if (layer2Url) {
+    a2Tex = loader.load(layer2Url, () => { a2Tex.magFilter = THREE.NearestFilter; a2Tex.minFilter = THREE.NearestFilter; onLoad(); }, undefined, () => { onLoad(); });
+  }
+}
+
 // ── RENDER ARMORS ─────────────────────────────────────────────────────────────
 function renderArmors() {
   const grid = document.getElementById('armorsGrid');
@@ -185,176 +341,80 @@ function renderArmors() {
 
   grid.classList.remove('empty-category');
 
-  // Cleanup des viewers 3D existants avant re-render
-  document.querySelectorAll('canvas[id^="armor-canvas-"]').forEach(c => {
-    if (c._skinViewer) { try { c._skinViewer.dispose(); } catch(e) {} c._skinViewer = null; }
-  });
+  // Get the currently selected armor's layers
+  const sel = selection.armors;
+  const layer1 = sel && sel.files ? (sel.files.find(f => f.path && f.path.includes('layer_1'))?.file || sel.files[0]?.file) : null;
+  const layer2 = sel && sel.files ? (sel.files.find(f => f.path && f.path.includes('layer_2'))?.file || null) : null;
 
-  // Carte "Aucune armure"
-  const noArmorHtml = `
-    <div class="armor-card" data-id="none" style="
-      flex-shrink:0; width:110px; display:flex; flex-direction:column; align-items:center; position:relative;
-      background:var(--bg-secondary); border:2px solid ${selection.armors === null ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
-      border-radius:12px; cursor:pointer; transition:all 0.2s; padding:10px 6px; gap:6px;
-    ">
-      <div style="width:70px; height:100px; display:flex; align-items:center; justify-content:center;">
-        <i class="fa-solid fa-ban" style="font-size:2rem; color:rgba(255,255,255,0.15);"></i>
+  // ── Layout: left = 3D preview panel, right = scrollable armor list ──
+  grid.innerHTML = `
+    <div style="display:flex; gap:16px; width:100%; align-items:flex-start; flex-wrap:wrap;">
+
+      <!-- 3D Preview panel -->
+      <div style="
+        flex-shrink:0; width:200px; min-width:160px;
+        background:linear-gradient(160deg,#111318 0%,#0d0f14 100%);
+        border:1px solid rgba(255,255,255,0.07);
+        border-radius:14px; overflow:hidden; position:relative;
+      ">
+        <div style="padding:10px 10px 4px; font-size:0.6rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center; letter-spacing:0.1em; text-transform:uppercase;">
+          ${sel ? sel.name : 'Aucune armure'}
+        </div>
+        <canvas id="armorPreviewCanvas" style="display:block; width:100%;"></canvas>
+        <div style="padding:4px 10px 10px; font-size:0.58rem; color:rgba(255,255,255,0.2); font-family:var(--font-mono); text-align:center;">
+          ↺ rotation auto
+        </div>
       </div>
-      <div style="font-size:0.62rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center;">Aucune</div>
+
+      <!-- Armor cards list -->
+      <div style="flex:1; min-width:0;">
+        <div style="display:flex; flex-wrap:wrap; gap:8px; padding-bottom:6px;">
+
+          <!-- No armor card -->
+          <div class="armor-card" data-id="none" style="
+            width:82px; display:flex; flex-direction:column; align-items:center;
+            background:var(--bg-secondary); border:2px solid ${!sel ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
+            border-radius:10px; cursor:pointer; transition:all 0.18s; padding:8px 4px; gap:5px;
+            ${!sel ? 'box-shadow:0 0 0 1px var(--accent-red), 0 4px 18px rgba(255,42,75,0.25);' : ''}
+          ">
+            <div style="width:52px; height:72px; display:flex; align-items:center; justify-content:center;">
+              <i class="fa-solid fa-ban" style="font-size:1.6rem; color:rgba(255,255,255,0.12);"></i>
+            </div>
+            <div style="font-size:0.58rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center;">Aucune</div>
+          </div>
+
+          ${armors.map(armor => {
+            const isSelected = sel && sel.id === armor.id;
+            const previewSrc = armor.preview || (armor.files && armor.files[0] ? armor.files[0].file : '');
+            return `
+              <div class="armor-card" data-id="${armor.id}" style="
+                width:82px; display:flex; flex-direction:column; align-items:center; position:relative;
+                background:var(--bg-secondary); border:2px solid ${isSelected ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
+                border-radius:10px; cursor:pointer; transition:all 0.18s; padding:5px; gap:3px;
+                ${isSelected ? 'box-shadow:0 0 0 1px var(--accent-red), 0 4px 18px rgba(255,42,75,0.25);' : ''}
+              ">
+                <img src="${previewSrc}" alt="${armor.name}"
+                  style="width:72px; height:90px; object-fit:cover; border-radius:6px; image-rendering:pixelated; background:#111;">
+                <div style="font-size:0.57rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center; padding:0 2px; line-height:1.2;">
+                  ${armor.name}
+                </div>
+                ${isSelected ? '<div style="position:absolute;top:3px;right:3px;width:14px;height:14px;background:var(--accent-red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;">✓</div>' : ''}
+              </div>
+            `;
+          }).join('')}
+
+        </div>
+      </div>
     </div>
   `;
 
-  // Cartes armures avec canvas 3D
-  const armorsHtml = armors.map(armor => {
-    const isSelected = selection.armors && selection.armors.id === armor.id;
-    const layer1 = armor.files && armor.files[0] ? armor.files[0].file : '';
-    const layer2 = armor.files && armor.files[1] ? armor.files[1].file : '';
-    return `
-      <div class="armor-card" data-id="${armor.id}" style="
-        flex-shrink:0; width:110px; display:flex; flex-direction:column; align-items:center; position:relative;
-        background:var(--bg-secondary); border:2px solid ${isSelected ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
-        border-radius:12px; cursor:pointer; transition:all 0.2s; padding:6px; gap:4px;
-        ${isSelected ? 'box-shadow:0 0 0 1px var(--accent-red), 0 6px 24px rgba(255,42,75,0.3);' : ''}
-      ">
-        <canvas
-          id="armor-canvas-${armor.id}"
-          width="100"
-          height="130"
-          style="border-radius:8px; background:transparent;"
-          data-layer1="${layer1}"
-          data-layer2="${layer2}"
-        ></canvas>
-        <div style="font-size:0.6rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center; padding:0 2px;">${armor.name}</div>
-        ${isSelected ? '<div style="position:absolute;top:4px;right:4px;width:16px;height:16px;background:var(--accent-red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-family:\'Font Awesome 6 Free\';font-weight:900;">&#xf00c;</div>' : ''}
-      </div>
-    `;
-  }).join('');
+  // Start 3D preview
+  setTimeout(() => {
+    const canvas = document.getElementById('armorPreviewCanvas');
+    if (canvas) launchArmorPreview(canvas, layer1, layer2);
+  }, 50);
 
-  grid.innerHTML = `<div style="display:flex; gap:10px; overflow-x:auto; padding-bottom:10px; width:100%; padding-top:4px;">${noArmorHtml}${armorsHtml}</div>`;
-
-  // Initialiser les viewers 3D pour chaque armure
-  if (typeof skinview3d !== 'undefined') {
-    // Skin Steve par défaut (base neutre sans couleur pour que l'armure soit bien visible)
-    const DEFAULT_SKIN = 'https://crafatar.com/skins/8667ba71b85a4004af54457a9734eed7';
-
-    armors.forEach(armor => {
-      const canvas = document.getElementById(`armor-canvas-${armor.id}`);
-      if (!canvas) return;
-
-      const layer1Src = canvas.dataset.layer1;
-      const layer2Src = canvas.dataset.layer2;
-
-      try {
-        const viewer = new skinview3d.SkinViewer({
-          canvas: canvas,
-          width: 100,
-          height: 130,
-          skin: DEFAULT_SKIN,
-        });
-
-        // Fond transparent
-        viewer.renderer.setClearColor(0x000000, 0);
-
-        // Caméra légèrement reculée pour voir tout le personnage
-        viewer.camera.position.z = 70;
-
-        // Auto-rotation lente
-        viewer.controls.enableZoom = false;
-        viewer.controls.enablePan = false;
-        viewer.controls.autoRotate = true;
-        viewer.controls.autoRotateSpeed = 1.8;
-
-        // Animation idle (respiration légère)
-        viewer.animation = new skinview3d.IdleAnimation();
-        viewer.animation.speed = 0.6;
-
-        // Appliquer les textures d'armure via canvas 2D overlay
-        const applyArmor = () => {
-          const skinCanvas = document.createElement('canvas');
-          skinCanvas.width = 64;
-          skinCanvas.height = 64;
-          const ctx = skinCanvas.getContext('2d');
-
-          // Charger skin de base puis overlayer l'armure
-          const baseSkin = new Image();
-          baseSkin.crossOrigin = 'anonymous';
-          baseSkin.onload = () => {
-            ctx.drawImage(baseSkin, 0, 0);
-
-            const loadAndApply = (src, done) => {
-              if (!src) { done(); return; }
-              const img = new Image();
-              img.crossOrigin = 'anonymous';
-              img.onload = () => {
-                // Créer canvas 64x64 pour la texture armure
-                const ac = document.createElement('canvas');
-                ac.width = 64; ac.height = 64;
-                const ax = ac.getContext('2d');
-                ax.drawImage(img, 0, 0, 64, 64);
-                // Overlay sur le skin
-                ctx.drawImage(ac, 0, 0);
-                done();
-              };
-              img.onerror = done;
-              img.src = src;
-            };
-
-            loadAndApply(layer1Src, () => {
-              loadAndApply(layer2Src, () => {
-                viewer.loadSkin(skinCanvas.toDataURL());
-              });
-            });
-          };
-          baseSkin.onerror = () => {
-            // Si crafatar échoue, appliquer directement les layers sur fond vide
-            ctx.clearRect(0, 0, 64, 64);
-            const loadAndApply = (src, done) => {
-              if (!src) { done(); return; }
-              const img = new Image();
-              img.crossOrigin = 'anonymous';
-              img.onload = () => {
-                const ac = document.createElement('canvas');
-                ac.width = 64; ac.height = 64;
-                const ax = ac.getContext('2d');
-                ax.drawImage(img, 0, 0, 64, 64);
-                ctx.drawImage(ac, 0, 0);
-                done();
-              };
-              img.onerror = done;
-              img.src = src;
-            };
-            loadAndApply(layer1Src, () => {
-              loadAndApply(layer2Src, () => {
-                viewer.loadSkin(skinCanvas.toDataURL());
-              });
-            });
-          };
-          baseSkin.src = DEFAULT_SKIN;
-        };
-
-        applyArmor();
-        canvas._skinViewer = viewer;
-
-      } catch(e) {
-        console.warn('skinview3d error for', armor.id, e);
-        // Fallback : afficher la preview image statique
-        const previewSrc = armor.preview || layer1Src;
-        canvas.insertAdjacentHTML('afterend', `<img src="${previewSrc}" alt="${armor.name}" style="width:100px;height:130px;object-fit:cover;border-radius:8px;image-rendering:pixelated;background:#111;">`);
-        canvas.remove();
-      }
-    });
-  } else {
-    // Fallback si skinview3d non chargé : image statique
-    armors.forEach(armor => {
-      const canvas = document.getElementById(`armor-canvas-${armor.id}`);
-      if (!canvas) return;
-      const previewSrc = armor.preview || (armor.files && armor.files[0] ? armor.files[0].file : '');
-      canvas.insertAdjacentHTML('afterend', `<img src="${previewSrc}" alt="${armor.name}" style="width:100px;height:130px;object-fit:cover;border-radius:8px;image-rendering:pixelated;background:#111;">`);
-      canvas.remove();
-    });
-  }
-
-  // Clicks
+  // Click events
   grid.querySelectorAll('.armor-card').forEach(card => {
     card.addEventListener('click', () => {
       if (card.dataset.id === 'none') {
@@ -445,6 +505,10 @@ function setupNav() {
 }
 
 function showStep() {
+  // Dispose armor 3D scene when navigating away from armors
+  const prevStepId = STEPS[currentStepIdx];
+  if (prevStepId !== 'armors') disposeArmorScene();
+
   // Hide all steps
   document.querySelectorAll('.builder-step').forEach(s => s.classList.remove('active'));
   // Show current
