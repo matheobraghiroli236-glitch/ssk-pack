@@ -272,7 +272,7 @@ function launchArmorPreview(canvasEl, layer1Url, layer2Url) {
   const loader = new THREE.TextureLoader();
   loader.crossOrigin = 'anonymous';
 
-  const STEVE = 'https://i.imgur.com/g0gQa05.png';
+  const STEVE = '/steve_skin.png';
 
   let pending = 1 + (layer1Url ? 1 : 0) + (layer2Url ? 1 : 0);
   let skinTex = null, a1Tex = null, a2Tex = null;
@@ -300,54 +300,40 @@ function launchArmorPreview(canvasEl, layer1Url, layer2Url) {
     const group = new THREE.Group();
     _armorGroup = group;
 
-    const S = 1; // 1 unit = 1 pixel (scale factor)
+    function add(mesh, x, y, z) { mesh.position.set(x,y,z); group.add(mesh); }
 
-    function add(mesh, x, y, z) {
-      mesh.position.set(x, y, z);
-      group.add(mesh);
-    }
-
+    // ── Steve skin (64x64) ──
     if (skinTex) {
-      // HEAD  — skin UV: 0,0  w=8 h=8 d=8
-      add(makePart(8,8,8, 0,0,  skinTex,64,64, 0, false), 0, 28, 0);
-      // HEAD overlay
-      add(makePart(8,8,8, 32,0, skinTex,64,64, 0.5, true), 0, 28, 0);
-      // BODY — 16,16  w=8 h=12 d=4
-      add(makePart(8,12,4, 16,16, skinTex,64,64, 0, false), 0, 12, 0);
-      // RIGHT ARM — 40,16  w=4 h=12 d=4
-      add(makePart(4,12,4, 40,16, skinTex,64,64, 0, false), -6, 12, 0);
-      // LEFT ARM — 32,48  w=4 h=12 d=4
-      add(makePart(4,12,4, 32,48, skinTex,64,64, 0, false), 6, 12, 0);
-      // RIGHT LEG — 0,16  w=4 h=12 d=4
-      add(makePart(4,12,4, 0,16, skinTex,64,64, 0, false), -2, -4, 0);
-      // LEFT LEG — 16,48
-      add(makePart(4,12,4, 16,48, skinTex,64,64, 0, false), 2, -4, 0);
+      add(makePart(8,8,8,   0, 0,  skinTex,64,64, 0,   false), 0,  28, 0); // head
+      add(makePart(8,8,8,  32, 0,  skinTex,64,64, 0.5, true),  0,  28, 0); // head overlay
+      add(makePart(8,12,4, 16,16,  skinTex,64,64, 0,   false), 0,  12, 0); // body
+      add(makePart(4,12,4, 40,16,  skinTex,64,64, 0,   false),-6,  12, 0); // right arm
+      add(makePart(4,12,4, 32,48,  skinTex,64,64, 0,   false), 6,  12, 0); // left arm
+      add(makePart(4,12,4,  0,16,  skinTex,64,64, 0,   false),-2,  -4, 0); // right leg
+      add(makePart(4,12,4, 16,48,  skinTex,64,64, 0,   false), 2,  -4, 0); // left leg
     }
 
-    // ARMOR LAYER 1 — 64x32 texture
-    // Layout: helmet=0,0 | chestplate=16,16 | right_leg=0,16 | left_leg=16,16(mirror)
-    //         right_arm=40,16 | left_arm=40,16(mirror)
+    // ── Armor Layer 1 (128x64) ──
+    // UV layout for 128x64:
+    // helmet:     0,0   w=8  h=8  d=8
+    // chestplate: 16,16 w=8  h=12 d=4
+    // right_arm:  40,16 w=4  h=12 d=4  (same as skin but scaled to armor tex)
+    // left_arm:   16,32 w=4  h=12 d=4  (NEW in 1.8+ 64x64 armor format — but these are 128x64)
+    // right_leg:  0,16  w=4  h=12 d=4
+    // left_leg:   0,32  w=4  h=12 d=4
     if (a1Tex) {
-      // Helmet
-      add(makePart(8,8,8,   0, 0,  a1Tex,64,32, 0.5, true), 0, 28, 0);
-      // Chestplate body
-      add(makePart(8,12,4,  16,16, a1Tex,64,32, 0.5, true), 0, 12, 0);
-      // Right arm
-      add(makePart(4,12,4,  40,16, a1Tex,64,32, 0.5, true), -6, 12, 0);
-      // Left arm (same UV, mirrored position)
-      add(makePart(4,12,4,  40,16, a1Tex,64,32, 0.5, true), 6, 12, 0);
-      // Right leg
-      add(makePart(4,12,4,  0, 16, a1Tex,64,32, 0.5, true), -2, -4, 0);
-      // Left leg
-      add(makePart(4,12,4,  16,16, a1Tex,64,32, 0.5, true), 2, -4, 0);
+      add(makePart(8,8,8,   0, 0,  a1Tex,64,32, 0.5, true),  0,  28, 0); // helmet
+      add(makePart(8,12,4, 16,16,  a1Tex,64,32, 0.5, true),  0,  12, 0); // chestplate
+      add(makePart(4,12,4, 40,16,  a1Tex,64,32, 0.5, true), -6,  12, 0); // right arm
+      add(makePart(4,12,4, 40,16,  a1Tex,64,32, 0.5, true),  6,  12, 0); // left arm
+      add(makePart(4,12,4,  0,16,  a1Tex,64,32, 0.5, true), -2,  -4, 0); // right leg
+      add(makePart(4,12,4, 16,16,  a1Tex,64,32, 0.5, true),  2,  -4, 0); // left leg
     }
 
-    // ARMOR LAYER 2 — 64x32 texture (leggings + boots)
+    // ── Armor Layer 2 (128x64) — leggings + boots ──
     if (a2Tex) {
-      // Leggings right
-      add(makePart(4,12,4, 0,16, a2Tex,64,32, 0.5, true), -2, -4, 0);
-      // Leggings left
-      add(makePart(4,12,4, 16,16, a2Tex,64,32, 0.5, true), 2, -4, 0);
+      add(makePart(4,12,4,  0,16, a2Tex,64,32, 0.5, true), -2, -4, 0); // right legging
+      add(makePart(4,12,4, 16,16, a2Tex,64,32, 0.5, true),  2, -4, 0); // left legging
     }
 
     group.rotation.y = 0.4;
