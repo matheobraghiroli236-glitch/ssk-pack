@@ -62,6 +62,7 @@ const stepperBar = document.getElementById('stepperBar');
 document.addEventListener('DOMContentLoaded', async () => {
   await loadBuilderItems();
   renderSwords();
+  renderArmors();
   setupNav();
   setupSwordSearch();
   setupColorFilter();
@@ -110,9 +111,7 @@ function renderSwords(filter = 'all', search = '') {
 
     return `
       <div class="item-card ${isSelected ? 'selected' : ''}" data-id="${sword.id}" data-step="swords">
-        <div class="media-container" style="width:100%; height:150px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-          ${mediaHtml}
-        </div>
+        ${mediaHtml}
         <div class="item-card-label">${sword.name}</div>
       </div>
     `;
@@ -155,9 +154,7 @@ function renderCategory(catId) {
 
     return `
       <div class="item-card ${isSelected ? 'selected' : ''}" data-id="${item.id}" data-step="${catId}">
-        <div class="media-container" style="width:100%; height:150px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-          ${mediaHtml}
-        </div>
+        ${mediaHtml}
         <div class="item-card-label">${item.name}</div>
       </div>
     `;
@@ -177,6 +174,62 @@ function renderCategory(catId) {
   });
 }
 
+
+// ── RENDER ARMORS ─────────────────────────────────────────────────────────────
+function renderArmors() {
+  const grid = document.getElementById('armorsGrid');
+  if (!grid) return;
+
+  const armors = builderItems.armors || [];
+  if (armors.length === 0) return;
+
+  grid.classList.remove('empty-category');
+
+  const noArmorHtml = `
+    <div class="armor-card" data-id="none" style="
+      flex-shrink:0; width:100px; display:flex; flex-direction:column; align-items:center; position:relative;
+      background:var(--bg-secondary); border:2px solid ${selection.armors === null ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
+      border-radius:12px; cursor:pointer; transition:all 0.2s; padding:10px 6px; gap:6px;
+    ">
+      <div style="width:60px; height:88px; display:flex; align-items:center; justify-content:center;">
+        <i class="fa-solid fa-ban" style="font-size:2rem; color:rgba(255,255,255,0.15);"></i>
+      </div>
+      <div style="font-size:0.62rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center;">Aucune</div>
+    </div>
+  `;
+
+  const armorsHtml = armors.map(armor => {
+    const isSelected = selection.armors && selection.armors.id === armor.id;
+    const previewSrc = armor.preview || (armor.files && armor.files[0] ? armor.files[0].file : '');
+    return `
+      <div class="armor-card" data-id="${armor.id}" style="
+        flex-shrink:0; width:100px; display:flex; flex-direction:column; align-items:center; position:relative;
+        background:var(--bg-secondary); border:2px solid ${isSelected ? 'var(--accent-red)' : 'rgba(255,255,255,0.06)'};
+        border-radius:12px; cursor:pointer; transition:all 0.2s; padding:6px; gap:4px;
+        ${isSelected ? 'box-shadow:0 0 0 1px var(--accent-red), 0 6px 24px rgba(255,42,75,0.3);' : ''}
+      ">
+        <img src="${previewSrc}" alt="${armor.name}" style="width:88px; height:110px; object-fit:cover; border-radius:8px; image-rendering:pixelated; background:#111;">
+        <div style="font-size:0.6rem; color:var(--text-muted); font-family:var(--font-mono); text-align:center; padding:0 2px;">${armor.name}</div>
+        ${isSelected ? '<div style="position:absolute;top:4px;right:4px;width:16px;height:16px;background:var(--accent-red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-family:\'Font Awesome 6 Free\';font-weight:900;">&#xf00c;</div>' : ''}
+      </div>
+    `;
+  }).join('');
+
+  grid.innerHTML = `<div style="display:flex; gap:10px; overflow-x:auto; padding-bottom:10px; width:100%; padding-top:4px;">${noArmorHtml}${armorsHtml}</div>`;
+
+  grid.querySelectorAll('.armor-card').forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.dataset.id === 'none') {
+        selection.armors = null;
+      } else {
+        const armor = armors.find(a => a.id === card.dataset.id);
+        if (!armor) return;
+        selection.armors = (selection.armors && selection.armors.id === armor.id) ? null : armor;
+      }
+      renderArmors();
+    });
+  });
+}
 
 function getCurrentColorFilter() {
   const active = document.querySelector('.color-dot.active');
@@ -268,7 +321,11 @@ function showStep() {
     nextBtn.style.display = '';
     skipBtn.style.display = '';
     if (stepId !== 'swords') {
-      renderCategory(stepId);
+      if (stepId === 'armors') {
+        renderArmors();
+      } else {
+        renderCategory(stepId);
+      }
     }
   }
 
