@@ -205,22 +205,11 @@ function buildSkinBox(w, h, d, ox, oy, texture, tw, th, slim) {
   const s = (x, y) => [x / tw, 1.0 - y / th];
 
   // Each face: [topLeft, topRight, bottomLeft, bottomRight]
-  // Three.js BoxGeometry face order: +x, -x, +y, -y, +z, -z
-  // Minecraft UV layout (ox,oy) = top-left of the "unfolded" cross:
-  //   top:    ox+d      .. ox+d+w  ,  oy      .. oy+d
-  //   bottom: ox+d+w    .. ox+d+w+w,  oy      .. oy+d
-  //   right:  ox        .. ox+d    ,  oy+d    .. oy+d+h   (west / left of model)
-  //   front:  ox+d      .. ox+d+w  ,  oy+d    .. oy+d+h
-  //   left:   ox+d+w    .. ox+d+w+d,  oy+d    .. oy+d+h   (east / right of model)
-  //   back:   ox+d+w+d  .. ox+2d+2w,  oy+d    .. oy+d+h
-  //
-  // Three.js +x face = east side of box = Minecraft "left"  (ox+d+w .. ox+d+w+d)
-  // Three.js -x face = west side of box = Minecraft "right" (ox     .. ox+d    )
   const faces = [
-    // +x (east / Minecraft "left")
-    [ s(ox+d+w,     oy+d),      s(ox+d+w+d,   oy+d),      s(ox+d+w,     oy+d+h),    s(ox+d+w+d,   oy+d+h)   ],
-    // -x (west / Minecraft "right")
+    // +x = left face of box (right side when viewed from front) → Minecraft "right"
     [ s(ox,         oy+d),      s(ox+d,       oy+d),      s(ox,         oy+d+h),    s(ox+d,       oy+d+h)   ],
+    // -x = right face of box → Minecraft "left"
+    [ s(ox+d+w,     oy+d),      s(ox+d+w+d,   oy+d),      s(ox+d+w,     oy+d+h),    s(ox+d+w+d,   oy+d+h)   ],
     // +y = top
     [ s(ox+d,       oy),        s(ox+d+w,     oy),        s(ox+d,       oy+d),      s(ox+d+w,     oy+d)     ],
     // -y = bottom
@@ -324,34 +313,27 @@ function launchArmorPreview(canvasEl, layer1Url, layer2Url) {
       add(makePart(4,12,4, 16,48,  skinTex,64,64, 0,   false), 2,  -4, 0); // left leg
     }
 
-    // ── Armor Layer 1 (128x64 or 256x128) ──
-    // Standard Minecraft armor_1 layout (scaled from 64x32):
+    // ── Armor Layer 1 (128x64) ──
+    // UV layout for 128x64:
     // helmet:     0,0   w=8  h=8  d=8
     // chestplate: 16,16 w=8  h=12 d=4
-    // right_arm:  40,16 w=4  h=12 d=4
-    // left_arm:   40,32 w=4  h=12 d=4  (64x32 extended layout)
+    // right_arm:  40,16 w=4  h=12 d=4  (same as skin but scaled to armor tex)
+    // left_arm:   16,32 w=4  h=12 d=4  (NEW in 1.8+ 64x64 armor format — but these are 128x64)
     // right_leg:  0,16  w=4  h=12 d=4
-    // left_leg:   16,32 w=4  h=12 d=4
+    // left_leg:   0,32  w=4  h=12 d=4
     if (a1Tex) {
-      const a1w = a1Tex.image ? a1Tex.image.width  : 128;
-      const a1h = a1Tex.image ? a1Tex.image.height : 64;
-      const s2 = a1w / 64; // scale factor relative to standard 64px width
-      add(makePart(8,8,8,   0*s2, 0*s2,  a1Tex,a1w,a1h, 0.5, true),  0,  28, 0); // helmet
-      add(makePart(8,12,4, 16*s2,16*s2,  a1Tex,a1w,a1h, 0.5, true),  0,  12, 0); // chestplate
-      add(makePart(4,12,4, 40*s2,16*s2,  a1Tex,a1w,a1h, 0.5, true), -6,  12, 0); // right arm
-      add(makePart(4,12,4, 40*s2,32*s2,  a1Tex,a1w,a1h, 0.5, true),  6,  12, 0); // left arm
-      add(makePart(4,12,4,  0*s2,16*s2,  a1Tex,a1w,a1h, 0.5, true), -2,  -4, 0); // right leg
-      add(makePart(4,12,4, 16*s2,32*s2,  a1Tex,a1w,a1h, 0.5, true),  2,  -4, 0); // left leg
+      add(makePart(8,8,8,   0, 0,  a1Tex,128,64, 0.5, true),  0,  28, 0); // helmet
+      add(makePart(8,12,4, 16,16,  a1Tex,128,64, 0.5, true),  0,  12, 0); // chestplate
+      add(makePart(4,12,4, 40,16,  a1Tex,128,64, 0.5, true), -6,  12, 0); // right arm
+      add(makePart(4,12,4, 64,16,  a1Tex,128,64, 0.5, true),  6,  12, 0); // left arm
+      add(makePart(4,12,4,  0,16,  a1Tex,128,64, 0.5, true), -2,  -4, 0); // right leg
+      add(makePart(4,12,4,  0,32,  a1Tex,128,64, 0.5, true),  2,  -4, 0); // left leg
     }
 
-    // ── Armor Layer 2 (128x64 or 256x128) — leggings + boots ──
-    // Standard Minecraft armor_2: leggings at 0,0 ; left leg at 16,0
+    // ── Armor Layer 2 (128x64) — leggings + boots ──
     if (a2Tex) {
-      const a2w = a2Tex.image ? a2Tex.image.width  : 128;
-      const a2h = a2Tex.image ? a2Tex.image.height : 64;
-      const s2 = a2w / 64;
-      add(makePart(4,12,4,  0*s2, 0*s2, a2Tex,a2w,a2h, 0.5, true), -2, -4, 0); // right legging
-      add(makePart(4,12,4, 16*s2, 0*s2, a2Tex,a2w,a2h, 0.5, true),  2, -4, 0); // left legging
+      add(makePart(4,12,4,  0,16, a2Tex,128,64, 0.5, true), -2, -4, 0); // right legging
+      add(makePart(4,12,4, 16,16, a2Tex,128,64, 0.5, true),  2, -4, 0); // left legging
     }
 
     group.rotation.y = 0.4;
