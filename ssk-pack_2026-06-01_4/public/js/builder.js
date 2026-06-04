@@ -322,18 +322,18 @@ function launchArmorPreview(canvasEl, layer1Url, layer2Url) {
     // right_leg:  0,16  w=4  h=12 d=4
     // left_leg:   0,32  w=4  h=12 d=4
     if (a1Tex) {
-      add(makePart(8,8,8,   0, 0,  a1Tex,64,32, 0.5, true),  0,  28, 0); // helmet
-      add(makePart(8,12,4, 16,16,  a1Tex,64,32, 0.5, true),  0,  12, 0); // chestplate
-      add(makePart(4,12,4, 40,16,  a1Tex,64,32, 0.5, true), -6,  12, 0); // right arm
-      add(makePart(4,12,4, 40,16,  a1Tex,64,32, 0.5, true),  6,  12, 0); // left arm
-      add(makePart(4,12,4,  0,16,  a1Tex,64,32, 0.5, true), -2,  -4, 0); // right leg
-      add(makePart(4,12,4, 16,16,  a1Tex,64,32, 0.5, true),  2,  -4, 0); // left leg
+      add(makePart(8,8,8,   0, 0,  a1Tex,128,64, 0.5, true),  0,  28, 0); // helmet
+      add(makePart(8,12,4, 16,16,  a1Tex,128,64, 0.5, true),  0,  12, 0); // chestplate
+      add(makePart(4,12,4, 40,16,  a1Tex,128,64, 0.5, true), -6,  12, 0); // right arm
+      add(makePart(4,12,4, 64,16,  a1Tex,128,64, 0.5, true),  6,  12, 0); // left arm
+      add(makePart(4,12,4,  0,16,  a1Tex,128,64, 0.5, true), -2,  -4, 0); // right leg
+      add(makePart(4,12,4,  0,32,  a1Tex,128,64, 0.5, true),  2,  -4, 0); // left leg
     }
 
     // ── Armor Layer 2 (128x64) — leggings + boots ──
     if (a2Tex) {
-      add(makePart(4,12,4,  0,16, a2Tex,64,32, 0.5, true), -2, -4, 0); // right legging
-      add(makePart(4,12,4, 16,16, a2Tex,64,32, 0.5, true),  2, -4, 0); // left legging
+      add(makePart(4,12,4,  0,16, a2Tex,128,64, 0.5, true), -2, -4, 0); // right legging
+      add(makePart(4,12,4, 16,16, a2Tex,128,64, 0.5, true),  2, -4, 0); // left legging
     }
 
     group.rotation.y = 0.4;
